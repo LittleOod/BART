@@ -204,13 +204,13 @@
 		00EA8DD4135D870700562F3B /* libisis_core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D4409A134B4DCC00094A51 /* libisis_core.dylib */; };
 		00EA8DDA135D871A00562F3B /* libvia.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D44164134B57E600094A51 /* libvia.dylib */; };
 		00EA8DDB135D871B00562F3B /* libviaio.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D44166134B57E600094A51 /* libviaio.dylib */; };
-		00EA8DE7135D876900562F3B /* NEDd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EA8A2F135C6FC700562F3B /* NEDd.dylib */; };
+		00EA8DE7135D876900562F3B /* NED.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EA8A2F135C6FC700562F3B /* NED.dylib */; };
 		00EA8DF2135D879B00562F3B /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EA8A15135C6F5000562F3B /* libfftw3.dylib */; };
 		00EA8E11135D88E000562F3B /* libgslcblas.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1573111459587007C02CB /* libgslcblas.dylib */; };
 		00EA8E13135D88E100562F3B /* libgsl.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1573B11459605007C02CB /* libgsl.0.dylib */; };
-		00EA8E18135D88F000562F3B /* NEDd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EA8A2F135C6FC700562F3B /* NEDd.dylib */; };
+		00EA8E18135D88F000562F3B /* NED.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EA8A2F135C6FC700562F3B /* NED.dylib */; };
 		00EA8E50135D8B8400562F3B /* BAAnalyzerGLMReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006F53F122D3366001DA2BB /* BAAnalyzerGLMReference.m */; };
-		00EA8E51135D8B9600562F3B /* NEDd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EA8A2F135C6FC700562F3B /* NEDd.dylib */; };
+		00EA8E51135D8B9600562F3B /* NED.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EA8A2F135C6FC700562F3B /* NED.dylib */; };
 		00EA8E54135D8B9D00562F3B /* EDNA.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D44160134B57BD00094A51 /* EDNA.dylib */; };
 		00EA8E59135D8BA700562F3B /* libgslcblas.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1573111459587007C02CB /* libgslcblas.dylib */; };
 		00EA8E5B135D8BA800562F3B /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EA8A15135C6F5000562F3B /* libfftw3.dylib */; };
@@ -564,7 +564,7 @@
 		00E7A647117EF24F00696498 /* blockDesignTest01.edl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blockDesignTest01.edl; sourceTree = "<group>"; };
 		00E7A655117EF60900696498 /* NEDesignElementDynTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEDesignElementDynTest.m; sourceTree = "<group>"; };
 		00EA8A15135C6F5000562F3B /* libfftw3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfftw3.dylib; path = /opt/local/lib/libfftw3.dylib; sourceTree = "<absolute>"; };
-		00EA8A2F135C6FC700562F3B /* NEDd.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = NEDd.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		00EA8A2F135C6FC700562F3B /* NED.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = NED.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		00EA8ABD135C764F00562F3B /* libboost_date_time.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; name = libboost_date_time.dylib; path = /opt/local/lib/libboost_date_time.dylib; sourceTree = "<absolute>"; };
 		00EA8ABE135C764F00562F3B /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = /opt/local/lib/libboost_filesystem.dylib; sourceTree = "<absolute>"; };
 		00EA8ABF135C764F00562F3B /* libboost_regex.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_regex.dylib; path = /opt/local/lib/libboost_regex.dylib; sourceTree = "<absolute>"; };
@@ -588,7 +588,7 @@
 		8D1107310486CEB800E47090 /* BARTApplication-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BARTApplication-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* BARTApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BARTApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8A2A3910F61713002422B5 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
-		CE8B709110DA988F007AEB2B /* BARTUnitTestSuite.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BARTUnitTestSuite.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8B709110DA988F007AEB2B /* BARTUnitTestSuite.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = BARTUnitTestSuite.octest; path = BARTApplication.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED191F110AC8A5300FAFA4F /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		CED191F510AC8A7B00FAFA4F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		CED1922910AC8AD600FAFA4F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
@@ -639,7 +639,7 @@
 				00EA8AC6135C764F00562F3B /* libboost_filesystem.dylib in Frameworks */,
 				00EA8AC7135C764F00562F3B /* libboost_regex.dylib in Frameworks */,
 				00EA8AC8135C764F00562F3B /* libboost_system.dylib in Frameworks */,
-				00EA8E51135D8B9600562F3B /* NEDd.dylib in Frameworks */,
+				00EA8E51135D8B9600562F3B /* NED.dylib in Frameworks */,
 				00EA8E54135D8B9D00562F3B /* EDNA.dylib in Frameworks */,
 				00EA8E59135D8BA700562F3B /* libgslcblas.dylib in Frameworks */,
 				00EA8E5B135D8BA800562F3B /* libfftw3.dylib in Frameworks */,
@@ -773,7 +773,7 @@
 				00D440ED134B52AE00094A51 /* libisis_core.dylib in Frameworks */,
 				00D440EE134B52B100094A51 /* libboost_system-mt.dylib in Frameworks */,
 				00D441D8134B5AE300094A51 /* EDNA.dylib in Frameworks */,
-				00EA8E18135D88F000562F3B /* NEDd.dylib in Frameworks */,
+				00EA8E18135D88F000562F3B /* NED.dylib in Frameworks */,
 				00C730B21369F02B00FC8546 /* libboost_date_time-mt.dylib in Frameworks */,
 				00C730B31369F02C00FC8546 /* libboost_filesystem-mt.dylib in Frameworks */,
 				00C730B41369F02D00FC8546 /* libboost_regex-mt.dylib in Frameworks */,
@@ -799,7 +799,7 @@
 				00EA8DD4135D870700562F3B /* libisis_core.dylib in Frameworks */,
 				00EA8DDA135D871A00562F3B /* libvia.dylib in Frameworks */,
 				00EA8DDB135D871B00562F3B /* libviaio.dylib in Frameworks */,
-				00EA8DE7135D876900562F3B /* NEDd.dylib in Frameworks */,
+				00EA8DE7135D876900562F3B /* NED.dylib in Frameworks */,
 				00EA8DF2135D879B00562F3B /* libfftw3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1228,7 +1228,7 @@
 				008AEADD12B2381700130F74 /* data.dylib */,
 				0056D7D112D3354D002AC73F /* designtest */,
 				00D44160134B57BD00094A51 /* EDNA.dylib */,
-				00EA8A2F135C6FC700562F3B /* NEDd.dylib */,
+				00EA8A2F135C6FC700562F3B /* NED.dylib */,
 				00EA8B52135C83E100562F3B /* glmtest2 */,
 			);
 			name = Products;
@@ -1605,7 +1605,7 @@
 			);
 			name = NEDd;
 			productName = NEDd;
-			productReference = 00EA8A2F135C6FC700562F3B /* NEDd.dylib */;
+			productReference = 00EA8A2F135C6FC700562F3B /* NED.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 		00EA8B51135C83E100562F3B /* glmtest2 */ = {
