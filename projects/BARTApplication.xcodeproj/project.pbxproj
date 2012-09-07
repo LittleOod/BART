@@ -23,11 +23,7 @@
 		0006F634122E5AA6001DA2BB /* glmtest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006F633122E5AA6001DA2BB /* glmtest.m */; };
 		0006F7AD122E90FD001DA2BB /* pseudoStimulusDataBlock.edl in Resources */ = {isa = PBXBuildFile; fileRef = 0006F7AB122E90FD001DA2BB /* pseudoStimulusDataBlock.edl */; };
 		0006F7AE122E90FD001DA2BB /* rtExperiment_v14_simplified.xsd in Resources */ = {isa = PBXBuildFile; fileRef = 0006F7AC122E90FD001DA2BB /* rtExperiment_v14_simplified.xsd */; };
-		00138AE613E81D200069E625 /* libgslcblas.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1573111459587007C02CB /* libgslcblas.dylib */; };
-		00138AE713E81D240069E625 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EA8A15135C6F5000562F3B /* libfftw3.dylib */; };
-		00138AE813E81D260069E625 /* libgsl.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1573B11459605007C02CB /* libgsl.0.dylib */; };
 		0016102A134B200800373D77 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		00198339146003C6006F8E27 /* BARTSerialIOPluginEyeTrac.bundle in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = 00198337146003B4006F8E27 /* BARTSerialIOPluginEyeTrac.bundle */; };
 		0023A75811510D4C009182F8 /* edlValidation_rules.xml in Resources */ = {isa = PBXBuildFile; fileRef = 0088781F1147B445009C7707 /* edlValidation_rules.xml */; };
 		0023CBBE13EAC186006303B6 /* NELogFormatterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0023CBB113EAC186006303B6 /* NELogFormatterTest.m */; };
 		0023CBBF13EAC186006303B6 /* NEMediaObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0023CBB313EAC186006303B6 /* NEMediaObjectTest.m */; };
@@ -54,7 +50,6 @@
 		0040B87B11414A8E00A57967 /* ColorMappingFilter.cikernel in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0040B7F51141470400A57967 /* ColorMappingFilter.cikernel */; };
 		0041E41D13E8057C00169848 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0041E41713E804AB00169848 /* AppKit.framework */; };
 		0041E4B113E819A600169848 /* CLETUS.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0041E4AF13E805FF00169848 /* CLETUS.dylib */; };
-		004ABAF41378791400B13077 /* BADynamicDesignPipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 004ABAF31378791400B13077 /* BADynamicDesignPipeline.m */; };
 		00486A2C15D6F9E200A32A3A /* NED.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0041E4AE13E805FF00169848 /* NED.dylib */; };
 		00486A2D15D6F9E500A32A3A /* EDNA.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0041E4B013E805FF00169848 /* EDNA.dylib */; };
 		00486A2E15D6F9E700A32A3A /* CLETUS.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0041E4AF13E805FF00169848 /* CLETUS.dylib */; };
@@ -938,7 +933,7 @@
 		E57D97EE15C67F4F00E3D1C3 /* mainExp_Feedback_detrend_TR2000.edl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = mainExp_Feedback_detrend_TR2000.edl; path = ../src/BARTMainApp/mainExp_Feedback_detrend_TR2000.edl; sourceTree = "<group>"; };
 		E57D97EF15C67F4F00E3D1C3 /* preScan_TR2000.edl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = preScan_TR2000.edl; path = ../src/BARTMainApp/preScan_TR2000.edl; sourceTree = "<group>"; };
 		E57D97F915C6C74400E3D1C3 /* AddExperimentAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddExperimentAccessoryView.xib; sourceTree = "<group>"; };
-		E57D97FB15C6C93A00E3D1C3 /* BAAddExperimentAccessoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = BAAddExperimentAccessoryViewController.h; sourceTree = "<group>"; };
+		E57D97FB15C6C93A00E3D1C3 /* BAAddExperimentAccessoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAddExperimentAccessoryViewController.h; sourceTree = "<group>"; };
 		E57D97FC15C6C93A00E3D1C3 /* BAAddExperimentAccessoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAddExperimentAccessoryViewController.m; sourceTree = "<group>"; };
 		E597FE4815937BDF0065A28C /* BASessionTreeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASessionTreeController.h; sourceTree = "<group>"; };
 		E597FE4915937BDF0065A28C /* BASessionTreeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASessionTreeController.m; sourceTree = "<group>"; };
@@ -1025,8 +1020,6 @@
 				00486A2D15D6F9E500A32A3A /* EDNA.dylib in Frameworks */,
 				00486A2C15D6F9E200A32A3A /* NED.dylib in Frameworks */,
 				00486A2E15D6F9E700A32A3A /* CLETUS.dylib in Frameworks */,
-				00EA8A99135C72B200562F3B /* libvia.dylib in Frameworks */,
-				00EA8A9B135C72B300562F3B /* libviaio.dylib in Frameworks */,
 				00EA8E59135D8BA700562F3B /* libgslcblas.dylib in Frameworks */,
 				00EA8E5B135D8BA800562F3B /* libfftw3.dylib in Frameworks */,
 				00EA8E5D135D8BA800562F3B /* libgsl.0.dylib in Frameworks */,
@@ -3697,6 +3690,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = $inherited;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
@@ -3731,6 +3725,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = $inherited;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -3763,6 +3758,7 @@
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -3800,6 +3796,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
@@ -3942,18 +3939,18 @@
 					/usr/include/boost,
 					/usr/local/include,
 					/usr/local/lib/InsightToolkit,
-					/usr/local/include/InsightToolkit/Utilities/vxl/core,
-					/usr/local/include/InsightToolkit/Utilities/vxl/core/vnl,
-					/usr/local/include/InsightToolkit/Utilities/vxl/core/vnl/algo,
-					/usr/local/include/InsightToolkit/Utilities/vxl/vcl,
-					/usr/local/include/InsightToolkit/SpatialObject,
-					/usr/local/include/InsightToolkit/Review,
-					"/usr/local/include/InsightToolkit/Numerics/**",
-					/usr/local/include/InsightToolkit/IO,
-					/usr/local/include/InsightToolkit/Algorithms,
-					/usr/local/include/InsightToolkit,
-					/usr/local/include/InsightToolkit/BasicFilters,
-					/usr/local/include/InsightToolkit/Common,
+					/usr/include/InsightToolkit/Utilities/vxl/core,
+					/usr/include/InsightToolkit/Utilities/vxl/core/vnl,
+					/usr/include/InsightToolkit/Utilities/vxl/core/vnl/algo,
+					/usr/include/InsightToolkit/Utilities/vxl/vcl,
+					/usr/include/InsightToolkit/SpatialObject,
+					/usr/include/InsightToolkit/Review,
+					/usr/include/InsightToolkit/Numerics,
+					/usr/include/InsightToolkit/IO,
+					/usr/include/InsightToolkit/Algorithms,
+					/usr/include/InsightToolkit,
+					/usr/include/InsightToolkit/BasicFilters,
+					/usr/include/InsightToolkit/Common,
 					/usr/X11/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
@@ -3995,10 +3992,12 @@
 					"-litkvnl_inst",
 					"-litkvnl",
 					"-litkzlib",
-					"-lboost_date_time-mt",
-					"-lboost_filesystem-mt",
-					"-lboost_system-mt",
+					"-lboost_date_time",
+					"-lboost_filesystem",
+					"-lboost_system",
 					"-lisis_core",
+					"-lviaio",
+					"-lvia",
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				SDKROOT = "";
@@ -4044,18 +4043,18 @@
 					/usr/include/boost,
 					/usr/local/include,
 					/usr/local/lib/InsightToolkit,
-					/usr/local/include/InsightToolkit/Utilities/vxl/core,
-					/usr/local/include/InsightToolkit/Utilities/vxl/core/vnl,
-					/usr/local/include/InsightToolkit/Utilities/vxl/core/vnl/algo,
-					/usr/local/include/InsightToolkit/Utilities/vxl/vcl,
-					/usr/local/include/InsightToolkit/SpatialObject,
-					/usr/local/include/InsightToolkit/Review,
-					"/usr/local/include/InsightToolkit/Numerics/**",
-					/usr/local/include/InsightToolkit/IO,
-					/usr/local/include/InsightToolkit/Algorithms,
-					/usr/local/include/InsightToolkit,
-					/usr/local/include/InsightToolkit/BasicFilters,
-					/usr/local/include/InsightToolkit/Common,
+					/usr/include/InsightToolkit/Utilities/vxl/core,
+					/usr/include/InsightToolkit/Utilities/vxl/core/vnl,
+					/usr/include/InsightToolkit/Utilities/vxl/core/vnl/algo,
+					/usr/include/InsightToolkit/Utilities/vxl/vcl,
+					/usr/include/InsightToolkit/SpatialObject,
+					/usr/include/InsightToolkit/Review,
+					/usr/include/InsightToolkit/Numerics,
+					/usr/include/InsightToolkit/IO,
+					/usr/include/InsightToolkit/Algorithms,
+					/usr/include/InsightToolkit,
+					/usr/include/InsightToolkit/BasicFilters,
+					/usr/include/InsightToolkit/Common,
 					/usr/X11/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
@@ -4097,10 +4096,12 @@
 					"-litkvnl_inst",
 					"-litkvnl",
 					"-litkzlib",
-					"-lboost_date_time-mt",
-					"-lboost_filesystem-mt",
-					"-lboost_system-mt",
+					"-lboost_date_time",
+					"-lboost_filesystem",
+					"-lboost_system",
 					"-lisis_core",
+					"-lviaio",
+					"-lvia",
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				SDKROOT = "";
