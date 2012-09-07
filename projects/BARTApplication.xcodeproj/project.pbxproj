@@ -3844,9 +3844,9 @@
 					"-litkvnl_inst",
 					"-litkvnl",
 					"-litkzlib",
-					"-lboost_date_time-mt",
-					"-lboost_filesystem-mt",
-					"-lboost_system-mt",
+					"-lboost_date_time",
+					"-lboost_filesystem",
+					"-lboost_system",
 					"-lisis_core",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3903,9 +3903,9 @@
 					"-litkvnl_inst",
 					"-litkvnl",
 					"-litkzlib",
-					"-lboost_date_time-mt",
-					"-lboost_filesystem-mt",
-					"-lboost_system-mt",
+					"-lboost_date_time",
+					"-lboost_filesystem",
+					"-lboost_system",
 					"-lisis_core",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4419,10 +4419,10 @@
 					/usr/local/include/InsightToolkit/Utilities,
 					/opt/local/include,
 					/usr/include,
-					/usr/local/include/isis,
-					/usr/local/include/boost,
-					/usr/local/include,
-					/usr/local/lib/InsightToolkit,
+					/usr/include/isis,
+					/usr/include/boost,
+					/usr/include,
+					/usr/lib/InsightToolkit,
 					/usr/include/InsightToolkit/Utilities/vxl/core,
 					/usr/include/InsightToolkit/Utilities/vxl/core/vnl,
 					/usr/include/InsightToolkit/Utilities/vxl/core/vnl/algo,
@@ -4527,10 +4527,10 @@
 					/usr/local/include/InsightToolkit/Utilities,
 					/opt/local/include,
 					/usr/include,
-					/usr/local/include/isis,
-					/usr/local/include/boost,
-					/usr/local/include,
-					/usr/local/lib/InsightToolkit,
+					/usr/include/isis,
+					/usr/include/boost,
+					/usr/include,
+					/usr/lib/InsightToolkit,
 					/usr/include/InsightToolkit/Utilities/vxl/core,
 					/usr/include/InsightToolkit/Utilities/vxl/core/vnl,
 					/usr/include/InsightToolkit/Utilities/vxl/core/vnl/algo,
@@ -4776,6 +4776,7 @@
 				009BCDDF15F90C380059B8D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		009BCDE015F90C380059B8D3 /* Build configuration list for PBXNativeTarget "ARTIETests" */ = {
 			isa = XCConfigurationList;
@@ -4784,6 +4785,7 @@
 				009BCDE215F90C380059B8D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00A7DD4F117C366B00062AFE /* Build configuration list for PBXNativeTarget "NEDUnitTestSuite" */ = {
 			isa = XCConfigurationList;
