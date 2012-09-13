@@ -13,6 +13,8 @@
 
 @interface BASessionTreeController : NSTreeController <NSOutlineViewDelegate, NSOutlineViewDataSource> {
     
+@private
+    IBOutlet NSOutlineView *_sessionTreeOutlineView;
 }
 
 @property (readonly) NSArray *treeRoots;

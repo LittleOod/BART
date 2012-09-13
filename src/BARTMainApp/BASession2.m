@@ -74,9 +74,15 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (NSString*)displayTypeName
++ (NSString*)typeDisplayName
 {
     return @"Abstract Session";
 }
+
++ (NSString*)typeDescription
+{
+    return @"Abstract Session Description";
+}
+
 
 @end

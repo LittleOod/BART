@@ -33,14 +33,23 @@
     
 }
 
+- (NSView*)outlineView:(NSOutlineView *)outlineView
+    viewForTableColumn:(NSTableColumn *)tableColumn
+                  item:(id)item
+{
+    NSLog(@"outlineView:%@ viewForTableColumn:%@ item:%@", outlineView, tableColumn, item);
+
+    return [outlineView makeViewWithIdentifier:[tableColumn identifier] owner:self];
+}
+
 
 #pragma mark -
 #pragma mark Stuff for Debugging
 
 - (id)arrangedObjects
 {
-    NSLog(@"[BASessionTreeController arrangedObjects] called: [arrangedObjects = %@]", [super arrangedObjects]);
-    return [super arrangedObjects];
+    NSLog(@"[BASessionTreeController arrangedObjects] called: [arrangedObjects = %@]", [NSArray arrayWithObject:[[BASessionContext sharedBASessionContext] currentSession]]);
+    return [NSArray arrayWithObject:[[BASessionContext sharedBASessionContext] currentSession]];
 }
 
 - (id)content

@@ -12,7 +12,7 @@
 #import "BAConstants.h"
 
 
-@interface BASessionTreeNode : NSObject <NSCopying>
+@interface BASessionTreeNode : NSTreeNode <NSCopying>
     
 
 @property (readonly) id                     object;
@@ -25,12 +25,10 @@
 @property (readonly) NSArray               *children;
 
 
-- (id)initWithObject:(id)object children:(NSArray*)children;
 - (id)initWithType:(uint)type name:(NSString*)name description:(NSString*)description children:(NSArray*)children;
 
 
 -(BOOL)isRoot;
--(BOOL)isLeaf;
 -(NSUInteger)childCount;
 
 -(void)dump;

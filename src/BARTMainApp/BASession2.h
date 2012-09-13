@@ -22,5 +22,6 @@
 - (id) initWithName:(NSString*)name description:(NSString*)description experiments:(NSArray*)experiments;
 
 + (NSString*)displayTypeName;
++ (NSString*)displayDescription;
 
 @end

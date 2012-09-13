@@ -23,6 +23,9 @@
 @synthesize name        = _name;
 @synthesize description = _description;
 
+@synthesize typeIcon  = _typeIcon;
+@synthesize stateIcon = _stateIcon;
+
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString *)key
 {
@@ -38,6 +41,8 @@
 
 - (NSImage*)typeIcon
 {
+    NSLog(@"[BASessionTreeNode typeIcon] called (%@)", self);
+    
     if(_type == BA_NODE_TYPE_SESSION) {
         return [NSImage imageNamed:@"SessionTreeNodeIconSession.png"];
     } else if (_type == BA_NODE_TYPE_EXPERIMENT) {
@@ -53,18 +58,20 @@
 
 - (NSImage*)stateIcon
 {
-    if([[self object] state] == BA_NODE_STATE_RUNNING) {
-        return [NSImage imageNamed:@"runner.png"];
-    } else if ([[self object] state] == BA_NODE_STATE_READY) {
-        return [NSImage imageNamed:NSImageNameStatusAvailable];
-    } else if ([[self object] state] == BA_NODE_STATE_NEEDS_CONFIGURATION) {
-        return [NSImage imageNamed:NSImageNameStatusPartiallyAvailable];
-    } else if ([[self object] state] == BA_NODE_STATE_ERROR) {
-        return [NSImage imageNamed:NSImageNameStatusUnavailable];
-    } else if ([[self object] state] == BA_NODE_STATE_FINISHED) {
-        return [NSImage imageNamed:NSImageNameMenuOnStateTemplate];
+    NSLog(@"[BASessionTreeNode stateIcon] called (%@)", self);
+
+    if(_state == BA_NODE_STATE_RUNNING) {
+        return [[NSImage imageNamed:@"runner.png"] retain];
+    } else if (_state == BA_NODE_STATE_READY) {
+        return [[NSImage imageNamed:NSImageNameStatusAvailable] retain];
+    } else if (_state == BA_NODE_STATE_NEEDS_CONFIGURATION) {
+        return [[NSImage imageNamed:NSImageNameStatusPartiallyAvailable] retain];
+    } else if (_state == BA_NODE_STATE_ERROR) {
+        return [[NSImage imageNamed:NSImageNameStatusUnavailable] retain];
+    } else if (_state == BA_NODE_STATE_FINISHED) {
+        return [[NSImage imageNamed:NSImageNameMenuOnStateTemplate] retain];
     } else {
-        return [NSImage imageNamed:NSImageNameStatusNone];
+        return [[NSImage imageNamed:NSImageNameStatusNone] retain];
     }
 }
 
@@ -88,40 +95,6 @@
         NSLog(@"          state: %@",  _state);
         NSLog(@"       children: %@",  _children);
         
-    }
-    
-    return self;
-}
-
-
-- (id)initWithObject:(id)object children:(NSArray*)children
-{
-    if(self = [super init]) {
-        _object = object;
-        if(children == nil) {
-            _children = [[NSArray arrayWithObjects:nil] retain];
-        } else {
-            _children = [[NSArray arrayWithArray:children] retain];
-        }
-        if([[_object class] isSubclassOfClass:[BASession2 class]]) {
-            _type = BA_NODE_TYPE_SESSION;
-        } else if ([[_object class] isSubclassOfClass:[BAExperiment2 class]]) {
-            _type = BA_NODE_TYPE_EXPERIMENT;
-        } else if ([[_object class] isSubclassOfClass:[BAStep2 class]]) {
-            _type = BA_NODE_TYPE_STEP;
-        } else {
-            _type = BA_NODE_TYPE_UNKNOWN;
-        }
-        _name        = [[_object name] copy];
-        _description = [[_object description] copy];
-        _state       = [_object state];
-        NSLog(@"Created BASessionTreeNode:");
-        NSLog(@"           name: %@", _name);
-        NSLog(@"    description: %@", _description);
-        NSLog(@"          state: %@", _state);
-        NSLog(@"       children: %@", _children);
-        
-//        [_object addObserver:self forKeyPath:@"state" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
     }
     
     return self;
@@ -152,6 +125,24 @@
 {
     NSLog(@"[BASessionTreeNode childCount] called");
     return [[self children] count];
+}
+
+-(NSArray*)childNodes
+{
+    NSLog(@"[BASessionTreeNode childNodes] called");
+    return [self children];
+}
+
+-(NSTreeNode*)descendantNodeAtIndexPath:(NSIndexPath *)indexPath
+{
+    int count = [indexPath length];
+    NSTreeNode *node = self;
+    
+    for (int index = 0; index < count; index++) {
+        node = [[node childNodes] objectAtIndex:[indexPath indexAtPosition:index]];
+    }
+    
+    return node;
 }
 
 

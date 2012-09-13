@@ -49,13 +49,14 @@
 
 - (BASession2*)currentSession
 {
+    NSLog(@"[BASessionContext currentSession] called");
     return _currentSession;
 }
 
 
 - (void)setCurrentSession:(BASession2 *)newCurrentSession
 {
-    if(newCurrentSession != _currentSession) {
+//    if(newCurrentSession != _currentSession) {
         [self willChangeValueForKey:@"currentSession"];
         [newCurrentSession retain];
         if(_currentSession != nil) {
@@ -65,8 +66,8 @@
         NSLog(@"[BASessionContext setCurrentSession] currentSession changed to: %@", _currentSession);
         NSLog(@"[currentSession retainCount] %lu", [_currentSession retainCount]);
         // [self buildTreeForView];
-        [self willChangeValueForKey:@"currentSession"];
-    }
+        [self didChangeValueForKey:@"currentSession"];
+//    }
 }
 
 
@@ -171,6 +172,7 @@
         NSLog(@"adding another step ...");
         [experiment001 appendStep:step005];
         [experiment001 dump];
+        [self setCurrentSession:_currentSession];
     });
     
 

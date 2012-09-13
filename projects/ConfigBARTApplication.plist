@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>edlFile</key>
-	<string>/Users/Lydi/RealTimeProject/DemoDynamicDesign/Simulation/dynamicDesign_DEMO.edl</string>
+	<string>/Users/torsten/Data/RealTimeProject/DemoDynamicDesign/Simulation/dynamicDesign_DEMO.edl</string>
 	<key>dataSetForTest</key>
-	<string>/Users/Lydi/RealTimeProject/DemoDynamicDesign/Simulation/data/04304/04304_Moco_Data.nii</string>
+	<string>/Users/torsten/Data/RealTimeProject/DemoDynamicDesign/Simulation/data/04304/04304_Moco_Data.nii</string>
 	<key>UseLuigi</key>
-	<string>NO</string>
+	<string>YES</string>
 	<key>treeFile</key>
 	<string>/Users/torsten/Development/BartGUI/BART/src/BARTMainApp/AnalysisTest001TreeDescription.xml</string>
 </dict>
