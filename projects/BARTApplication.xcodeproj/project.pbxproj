@@ -305,6 +305,7 @@
 		E50AD5B01585FAA0001A8154 /* BASimulationDataProviderExecutionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50AD5AE1585FAA0001A8154 /* BASimulationDataProviderExecutionView.xib */; };
 		E50AD5B215861063001A8154 /* AnalysisTest001TreeDescription.xml in Resources */ = {isa = PBXBuildFile; fileRef = E50AD5B115861063001A8154 /* AnalysisTest001TreeDescription.xml */; };
 		E52D722015627C9B002E73CB /* BAHierarchyElementContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52D721F15627C9B002E73CB /* BAHierarchyElementContentViewController.m */; };
+		E543F545160368F600F83EEB /* BAMainSplitViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E543F544160368F600F83EEB /* BAMainSplitViewDelegate.m */; };
 		E5440C0F158A40F300AC541F /* BAHierarchyTreeStateCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5440C0E158A40F300AC541F /* BAHierarchyTreeStateCellView.m */; };
 		E54B814C157E3F580029ECC4 /* BAHierarchyElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54B814B157E3F580029ECC4 /* BAHierarchyElementViewController.m */; };
 		E54B8151157E40030029ECC4 /* BAExampleStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E54B8150157E40030029ECC4 /* BAExampleStep.m */; };
@@ -999,6 +1000,8 @@
 		E50AD5B115861063001A8154 /* AnalysisTest001TreeDescription.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AnalysisTest001TreeDescription.xml; path = ../src/BARTMainApp/AnalysisTest001TreeDescription.xml; sourceTree = "<group>"; };
 		E52D721E15627C9B002E73CB /* BAHierarchyElementContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHierarchyElementContentViewController.h; sourceTree = "<group>"; };
 		E52D721F15627C9B002E73CB /* BAHierarchyElementContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHierarchyElementContentViewController.m; sourceTree = "<group>"; };
+		E543F543160368F600F83EEB /* BAMainSplitViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAMainSplitViewDelegate.h; sourceTree = "<group>"; };
+		E543F544160368F600F83EEB /* BAMainSplitViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAMainSplitViewDelegate.m; sourceTree = "<group>"; };
 		E5440C0D158A40F300AC541F /* BAHierarchyTreeStateCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHierarchyTreeStateCellView.h; sourceTree = "<group>"; };
 		E5440C0E158A40F300AC541F /* BAHierarchyTreeStateCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHierarchyTreeStateCellView.m; sourceTree = "<group>"; };
 		E54934E21339151E003264FE /* EDDataElementRealTimeLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EDDataElementRealTimeLoader.mm; sourceTree = "<group>"; };
@@ -1611,6 +1614,8 @@
 				E597FE4915937BDF0065A28C /* BASessionTreeViewController.m */,
 				E57D97FB15C6C93A00E3D1C3 /* BAAddExperimentAccessoryViewController.h */,
 				E57D97FC15C6C93A00E3D1C3 /* BAAddExperimentAccessoryViewController.m */,
+				E543F543160368F600F83EEB /* BAMainSplitViewDelegate.h */,
+				E543F544160368F600F83EEB /* BAMainSplitViewDelegate.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -3052,6 +3057,7 @@
 				E57D97FD15C6C93A00E3D1C3 /* BAAddExperimentAccessoryViewController.m in Sources */,
 				E5799B1615CFFC15009C0F31 /* RTAnalysisExperiment.m in Sources */,
 				E5799B1915D00723009C0F31 /* FirstEverExampleExperiment.m in Sources */,
+				E543F545160368F600F83EEB /* BAMainSplitViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

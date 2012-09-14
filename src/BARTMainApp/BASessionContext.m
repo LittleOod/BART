@@ -168,7 +168,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         NSLog(@"waiting to add another step ...");
-        [NSThread sleepForTimeInterval:10];
+        [NSThread sleepForTimeInterval:20];
         NSLog(@"adding another step ...");
         [experiment001 appendStep:step005];
         [experiment001 dump];
