@@ -12,11 +12,8 @@
 #import "BAExperiment2.h"
 
 
-@interface BAStep2 : NSObject <NSCopying>
+@interface BAStep2 : BASessionTreeNode <NSCopying>
 
-@property (readonly,copy)    NSString  *name;
-@property (readonly,copy)    NSString  *description;
-@property (readwrite,assign) NSInteger  state;
 
 @property (readwrite,assign) BAExperiment2 *experiment;
 

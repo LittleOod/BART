@@ -1,5 +1,5 @@
 //
-//  BASessionTreeController.h
+//  BASessionTreeViewController.h
 //  BARTApplication
 //
 //  Created by Torsten Schlumm on 6/21/12.
@@ -11,13 +11,12 @@
 #import "BASessionTreeNode.h"
 
 
-@interface BASessionTreeController : NSTreeController <NSOutlineViewDelegate, NSOutlineViewDataSource> {
+@interface BASessionTreeViewController : NSViewController <NSOutlineViewDelegate, NSOutlineViewDataSource> {
     
 @private
     IBOutlet NSOutlineView *_sessionTreeOutlineView;
 }
 
-@property (readonly) NSArray *treeRoots;
-
+@property (readonly) NSArray *sessions;
 
 @end

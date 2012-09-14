@@ -9,14 +9,13 @@
 #import "BAStep2.h"
 
 
-@implementation BAStep2
+@implementation BAStep2 {
+    NSArray *emptyChildArray;
+}
 
 #pragma mark -
 #pragma mark Global Properties
 
-@synthesize name        = _name;
-@synthesize description = _description;
-@synthesize state       = _state;
 
 #pragma mark -
 #pragma mark Local Properties
@@ -24,30 +23,25 @@
 @synthesize experiment = _experiment;
 
 
-- (void)setState:(NSInteger)state
-{
-    [self willChangeValueForKey:@"state"];
-
-    NSLog(@"Step changing state from %lu to %lu", _state, state);
-    _state = state;
-    
-    [self didChangeValueForKey:@"state"];
-}
-
 
 #pragma mark -
 #pragma mark Initialization
 
 - (id) initWithName:(NSString*)name description:(NSString*)description;
 {
-    if(self = [super init]) {
-        _name        = [name copy];
-        _description = [description copy];
+    if(self = [super initWithType:BA_NODE_TYPE_STEP name:name description:description children:nil]) {
+        
     }
+    
+    emptyChildArray = [[NSMutableArray arrayWithCapacity:0] retain];
     
     return self;
 }
 
+- (NSArray*)children
+{
+    return emptyChildArray;
+}
 
 + (NSString*)typeDisplayName
 {

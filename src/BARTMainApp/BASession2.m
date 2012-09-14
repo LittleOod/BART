@@ -31,7 +31,17 @@
 
 - (id) initWithName:(NSString *)name description:(NSString *)description experiments:(NSArray *)experiments
 {
-    return [super initWithType:BA_NODE_TYPE_SESSION name:name description:description children:experiments];
+    if(self = [super initWithType:BA_NODE_TYPE_SESSION name:name description:description children:experiments]) {
+        
+    }
+
+    if(experiments == nil) {
+        _experiments = [[NSMutableArray arrayWithCapacity:0] retain];
+    } else {
+        _experiments = [[NSMutableArray arrayWithArray:experiments] retain];
+    }
+    
+    return self;
 }
 
 
