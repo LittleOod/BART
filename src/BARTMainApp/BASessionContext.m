@@ -124,9 +124,13 @@
                                                         @selector(experimentWithEDL:name:description:),
                                                         edl,
                                                         [[accessoryViewController experimentNameInput] stringValue],
-                                                        [[accessoryViewController experimentNameInput] stringValue]);
+                                                        [selectedExperimentClass typeDescription]);
 
-            NSLog(@"[BASessionContext] newly created experiment: %@", newExperiment);
+            NSLog(@"[BASessionContext] appending newly created experiment: %@", newExperiment);
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [[[BASessionContext sharedBASessionContext] currentSession] addExperiment:newExperiment atIndex:0];
+//            });
+            [[[BASessionContext sharedBASessionContext] currentSession] addExperiment:newExperiment atIndex:0];
         }
         
         [chooseEDLFilePanel release];
@@ -175,6 +179,9 @@
     
     BASession2 *session001 = [[BASession2 alloc] initWithName:@"Session 001" description:@"Description of Session 001" experiments:[NSMutableArray arrayWithObjects:experiment001, nil]];
 
+    NSLog(@"[BASessionContext createExampleSession] setting currentSession to: %@", session001);
+    [self setCurrentSession:session001];
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         NSLog(@"waiting to add another step ...");
         [NSThread sleepForTimeInterval:12];
@@ -183,10 +190,14 @@
         [experiment001 dump];
 //        [self setCurrentSession:_currentSession];
 
-        NSLog(@"adding an experiment ...");
         [NSThread sleepForTimeInterval:3];
+        NSLog(@"adding an experiment ...");
         [session001 addExperiment:experiment000 atIndex:0];
-
+        
+        [NSThread sleepForTimeInterval:3];
+        NSLog(@"removing an experiment ...");
+        [session001 removeExperiment:experiment000];
+        
         [NSThread sleepForTimeInterval:3];
         NSLog(@"removing a step ...");
         [experiment001 removeStep:step001a];
@@ -198,8 +209,6 @@
     });
     
     
-    NSLog(@"[BASessionContext createExampleSession] setting currentSession to: %@", session001);
-    [self setCurrentSession:session001];
 }
 
 #pragma mark -

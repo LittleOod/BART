@@ -113,7 +113,7 @@
 
 - (void)addExperiment:(id)experiment atIndex:(NSUInteger)index
 {
-    
+    NSLog(@"[BASession2 addExperiment atIndex]: %@ | %@", experiment, index);
     
     [self insertObject:experiment inExperimentsAtIndex:MIN(index, [self countOfExperiments])];
     

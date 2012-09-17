@@ -10,4 +10,7 @@
 
 @interface RTAnalysisExperiment : BAExperiment2
 
+
+- (void)createSteps;
+
 @end

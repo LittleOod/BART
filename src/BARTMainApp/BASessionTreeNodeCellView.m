@@ -18,6 +18,19 @@
 @synthesize nodeDescriptionTextField;
 @synthesize nodeStateImageView;
 
+#pragma mark -
+#pragma mark Drawing
+
+- (void)drawRect:(NSRect)dirtyRect
+{
+    if([[[self objectValue] name] isEqualToString:@"ExpName"]) {
+
+    } else {
+        [self setBackgroundStyle:NSBackgroundStyleLight];
+    }
+    [super drawRect:dirtyRect];
+    // NSLog(@"[BASessionTreeNodeCellView drawRect]: %@", NSStringFromRect(dirtyRect));
+}
 
 
 @end
