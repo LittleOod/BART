@@ -166,7 +166,15 @@
     [experiment001 appendStep:step004];
 
     [experiment001 dump];
+
+    BAExperiment2 *experiment000 = [[BAExperiment2 alloc] initWithEDL:nil
+                                                                 name:@"Experiment 00"
+                                                          description:@"Very long description of Experiment 000"];
+
     
+    
+    BASession2 *session001 = [[BASession2 alloc] initWithName:@"Session 001" description:@"Description of Session 001" experiments:[NSMutableArray arrayWithObjects:experiment001, nil]];
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         NSLog(@"waiting to add another step ...");
         [NSThread sleepForTimeInterval:12];
@@ -174,6 +182,11 @@
         [experiment001 appendStep:step005];
         [experiment001 dump];
 //        [self setCurrentSession:_currentSession];
+
+        NSLog(@"adding an experiment ...");
+        [NSThread sleepForTimeInterval:3];
+        [session001 addExperiment:experiment000 atIndex:0];
+
         [NSThread sleepForTimeInterval:3];
         NSLog(@"removing a step ...");
         [experiment001 removeStep:step001a];
@@ -184,8 +197,6 @@
         }
     });
     
-    
-    BASession2 *session001 = [[BASession2 alloc] initWithName:@"Session 001" description:@"Description of Session 001" experiments:[NSMutableArray arrayWithObjects:experiment001, nil]];
     
     NSLog(@"[BASessionContext createExampleSession] setting currentSession to: %@", session001);
     [self setCurrentSession:session001];

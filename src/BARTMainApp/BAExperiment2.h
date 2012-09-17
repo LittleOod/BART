@@ -44,6 +44,7 @@
 - (id)initWithEDL:(COSystemConfig*)edl name:(NSString*)name description:(NSString*)description;
 - (id)initWithEDL:(COSystemConfig*)edl name:(NSString*)name description:(NSString*)description steps:(NSArray*)steps;
 
+- (void)addStep:(BASessionTreeNode*)step atIndex:(NSUInteger)index;
 - (void)appendStep:(BASessionTreeNode*)step;
 - (void)removeStepAtIndex:(NSUInteger)index;
 - (void)removeStep:(BASessionTreeNode*)step;

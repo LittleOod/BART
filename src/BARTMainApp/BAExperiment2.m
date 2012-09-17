@@ -138,11 +138,12 @@
 #pragma mark -
 #pragma mark Instance Methods (Structure)
 
-- (void)appendStep:(id)step
+- (void)addStep:(id)step atIndex:(NSUInteger)index
 {
-    NSUInteger index = [self countOfSteps];
-    [self insertObject:step inStepsAtIndex:index];
 
+    
+    [self insertObject:step inStepsAtIndex:MIN(index, [self countOfSteps])];
+    
     BARTSessionTreeNodeChangeNotificationChangeType changeType = childAdded;
     NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [NSNumber numberWithUnsignedInteger:changeType], BARTSessionTreeNodeChangeNotificationChangeTypeKey,
@@ -150,6 +151,13 @@
                                           nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:BARTSessionTreeNodeChangeNotification object:self userInfo:notificationUserInfo];
 }
+
+- (void)appendStep:(id)step
+{
+    NSUInteger index = [self countOfSteps];
+    [self addStep:step atIndex:index];
+}
+
 
 - (void)removeStepAtIndex:(NSUInteger)index
 {

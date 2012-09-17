@@ -15,11 +15,16 @@
 @interface BASession2 : BASessionTreeNode <NSCopying>
 
 
-@property (readwrite,retain) NSArray   *experiments;
+@property (readonly,retain) NSArray   *experiments;
 
 
 - (id) initWithName:(NSString*)name description:(NSString*)description;
 - (id) initWithName:(NSString*)name description:(NSString*)description experiments:(NSArray*)experiments;
+
+- (void)addExperiment:(BASessionTreeNode*)experiment atIndex:(NSUInteger)index;
+- (void)appendExperiment:(BASessionTreeNode*)experiment;
+- (void)removeExperimentAtIndex:(NSUInteger)index;
+- (void)removeExperiment:(BASessionTreeNode*)experiment;
 
 + (NSString*)displayTypeName;
 + (NSString*)displayDescription;

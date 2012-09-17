@@ -7,11 +7,15 @@
 //
 
 #import "BASession2.h"
-
 #import "BAExperiment2.h"
+#import "BARTNotifications.h"
 
 
-@implementation BASession2
+@implementation BASession2 {
+    
+    NSMutableArray *_experiments;
+    
+}
 
 #pragma mark -
 #pragma mark Global Properties
@@ -57,7 +61,7 @@
 {
     [self willChangeValueForKey:@"experiments"];
     
-    _experiments = experiments;
+    _experiments = [NSMutableArray arrayWithArray:experiments];
     [_experiments enumerateObjectsUsingBlock:^(id experiment, NSUInteger index, BOOL *stop) {
         [(BAExperiment2*)experiment setSession:self];
     }];
@@ -79,6 +83,72 @@
 {
     [_experiments getObjects:buffer range:inRange];
 }
+
+- (void)insertObject:(BAExperiment2*)experiment inExperimentsAtIndex:(NSUInteger)index
+{
+    [self willChangeValueForKey:@"experiments"];
+    NSLog(@"insertObject:%@ inExperimentsAtIndex:%lu", experiment, index);
+    [experiment setSession:self];
+    [_experiments insertObject:experiment atIndex:index];
+    [self didChangeValueForKey:@"experiments"];
+}
+
+- (void)removeObjectFromExperimentsAtIndex:(NSUInteger)index
+{
+    [self willChangeValueForKey:@"experiments"];
+    [_experiments removeObjectAtIndex:index];
+    [self didChangeValueForKey:@"experiments"];
+}
+
+- (void)replaceObjectInExperimentsAtIndex:(NSUInteger)index withObject:(id)experiment
+{
+    [self willChangeValueForKey:@"experiments"];
+    [experiment setSession:self];
+    [_experiments replaceObjectAtIndex:index withObject:experiment];
+    [self didChangeValueForKey:@"experiments"];
+}
+
+#pragma mark -
+#pragma mark Instance Methods (Structure)
+
+- (void)addExperiment:(id)experiment atIndex:(NSUInteger)index
+{
+    
+    
+    [self insertObject:experiment inExperimentsAtIndex:MIN(index, [self countOfExperiments])];
+    
+    BARTSessionTreeNodeChangeNotificationChangeType changeType = childAdded;
+    NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [NSNumber numberWithUnsignedInteger:changeType], BARTSessionTreeNodeChangeNotificationChangeTypeKey,
+                                          [NSNumber numberWithUnsignedInteger:index], BARTSessionTreeNodeChangeNotificationChildIndexKey,
+                                          nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BARTSessionTreeNodeChangeNotification object:self userInfo:notificationUserInfo];
+}
+
+- (void)appendExperiment:(id)experiment
+{
+    NSUInteger index = [self countOfExperiments];
+    [self addExperiment:experiment atIndex:index];
+}
+
+
+- (void)removeExperimentAtIndex:(NSUInteger)index
+{
+    [self removeObjectFromExperimentsAtIndex:index];
+    BARTSessionTreeNodeChangeNotificationChangeType changeType = childRemoved;
+    NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [NSNumber numberWithUnsignedInteger:changeType], BARTSessionTreeNodeChangeNotificationChangeTypeKey,
+                                          [NSNumber numberWithUnsignedInteger:index], BARTSessionTreeNodeChangeNotificationChildIndexKey,
+                                          nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BARTSessionTreeNodeChangeNotification object:self userInfo:notificationUserInfo];
+}
+
+
+- (void)removeExperiment:(BASessionTreeNode*)experiment
+{
+    [self removeExperimentAtIndex:[_experiments indexOfObject:experiment]];
+}
+
 
 
 #pragma mark -
