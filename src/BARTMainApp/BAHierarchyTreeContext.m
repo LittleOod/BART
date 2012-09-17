@@ -84,9 +84,9 @@
         [selectedElement release];
         selectedElement = [newSelectedElement retain];
     }
-    [[NSNotificationQueue defaultQueue] 
-      enqueueNotification:[NSNotification notificationWithName:BARTHierarchyTreeContextSelectedElementChangedNotification object:self] 
-             postingStyle:NSPostASAP];
+//    [[NSNotificationQueue defaultQueue] 
+//      enqueueNotification:[NSNotification notificationWithName:BARTHierarchyTreeContextSelectedElementChangedNotification object:self] 
+//             postingStyle:NSPostASAP];
     NSLog(@"BAHierarchyTreeContext selected element changed: %@", [selectedElement description]);
 }
 

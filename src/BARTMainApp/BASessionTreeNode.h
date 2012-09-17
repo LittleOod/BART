@@ -15,14 +15,14 @@
 @interface BASessionTreeNode : NSTreeNode <NSCopying>
     
 
-@property (readonly) id                     object;
-@property (readonly) NSString              *name;
-@property (readonly) NSString              *description;
-@property (readonly) uint                   type;
-@property (readonly) NSImage               *typeIcon;
-@property (readonly) NSInteger              state;
-@property (readonly) NSImage               *stateIcon;
-@property (readonly) NSArray               *children;
+@property (readonly)  id                     object;
+@property (readonly)  NSString              *name;
+@property (readonly)  NSString              *description;
+@property (readonly)  uint                   type;
+@property (readonly)  NSImage               *typeIcon;
+@property (readwrite) NSInteger              state;
+@property (readonly)  NSImage               *stateIcon;
+@property (readonly)  NSArray               *children;
 
 
 - (id)initWithType:(uint)type name:(NSString*)name description:(NSString*)description children:(NSArray*)children;

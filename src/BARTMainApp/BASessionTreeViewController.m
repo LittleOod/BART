@@ -6,17 +6,71 @@
 //  Copyright (c) 2012 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
 //
 
+#pragma mark -
+#pragma mark Headers
+
 #import "BASessionTreeViewController.h"
-
 #import "BASessionContext.h"
+#import "BARTNotifications.h"
 
 
 
-@implementation BASessionTreeViewController
+#pragma mark -
+#pragma mark Implementation
 
+@implementation BASessionTreeViewController {
+    
+    NSOperationQueue *sessionTreeViewQueue;
+}
+
+
+#pragma mark -
+#pragma mark Initialization
+
+- (id)initWithCoder:(NSCoder*)aDecoder
+{
+    if(self = [super initWithCoder:aDecoder]) {
+        NSLog(@"[BASessionTreeViewController initWithCoder] called: %@", aDecoder);
+
+        sessionTreeViewQueue = [[NSOperationQueue alloc] init];
+        
+        [[BASessionContext sharedBASessionContext] addObserver:self
+                                                    forKeyPath:@"currentSession"
+                                                       options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
+                                                       context:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserverForName:BARTSessionTreeNodeChangeNotification
+                                                          object:nil
+                                                           queue:sessionTreeViewQueue
+                                                      usingBlock:^(NSNotification *notification) {
+                                                          NSLog(@"[BARTSessionTreeNodeChangeNotification] %@", notification);
+                                                          [_sessionTreeOutlineView beginUpdates];
+                                                          NSIndexSet *insertIndexSet = [NSIndexSet indexSetWithIndex:[[[notification object] children] count] - 1];
+                                                          [_sessionTreeOutlineView reloadData];
+                                                          [_sessionTreeOutlineView insertItemsAtIndexes:insertIndexSet inParent:[notification object] withAnimation:NSTableViewAnimationEffectFade];
+                                                          [_sessionTreeOutlineView endUpdates];
+//                                                          [_sessionTreeOutlineView reloadItem:[notification object] reloadChildren:TRUE];
+                                                      }];
+    }
+    
+    return self;
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    NSLog(@"[BASessionTreeViewController observeValueForKeyPath ofObject change context] called: %@ | %@ | %@ | %@", keyPath, object, change, context);
+    if([keyPath isEqualToString:@"currentSession"]) {
+//        [_sessionTreeOutlineView reloadItem:[change objectForKey:NSKeyValueChangeNewKey] reloadChildren:TRUE];
+    }
+}
+
+
+
+#pragma mark -
+#pragma mark Local Properties
 
 @synthesize sessions = _sessions;
-
 
 - (NSArray*)sessions {
     return [NSArray arrayWithObject:[[BASessionContext sharedBASessionContext] currentSession]];
@@ -25,12 +79,16 @@
 
 - (void)outlineViewSelectionDidChange:(NSNotification*)notification
 {
-    BASessionTreeNode *selectedNode = [[[notification object] itemAtRow:[[notification object] selectedRow]] representedObject];
-    
-    NSLog(@"[BASessionTreeViewController outlineViewSelectionDidChange]: %@", selectedNode);
-    
-    [[selectedNode object] setState:random() % 6];
-    
+    NSLog(@"[BASessionTreeViewController outlineViewSelectionDidChange] called: %@", notification);
+
+    if([notification object] == _sessionTreeOutlineView) {
+        
+        BASessionTreeNode *selectedNode = [_sessionTreeOutlineView itemAtRow:[_sessionTreeOutlineView selectedRow]];
+        
+        NSLog(@"[BASessionTreeViewController outlineViewSelectionDidChange] selectedNode: %@", selectedNode);
+        
+        [selectedNode setState:random() % 6];
+    }
 }
 
 - (NSView*)outlineView:(NSOutlineView *)outlineView

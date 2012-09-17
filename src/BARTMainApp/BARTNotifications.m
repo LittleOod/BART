@@ -14,4 +14,5 @@ NSString * const BARTDidReceiveNextTriggerNotification = @"BARTNextTriggerNotifi
 NSString * const BARTTestBackroundNotification = @"BARTTestBackroundNotification";
 NSString * const BARTScannerSentTerminusNotification = @"BARTScannerSentTerminusNotification";
 NSString * const BARTStopExperimentNotification = @"BARTStopExperimentNotification";
-NSString * const BARTHierarchyTreeContextSelectedElementChangedNotification = @"BARTHierarchyTreeContextSelectedElementChangedNotification";
+
+NSString * const BARTSessionTreeNodeChangeNotification = @"BARTSessionTreeNodeChangeNotification";

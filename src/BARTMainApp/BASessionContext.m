@@ -70,7 +70,6 @@
 //    }
 }
 
-
 - (NSArray*)sessionArray
 {
     if(_currentSession == nil) {
@@ -168,14 +167,12 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         NSLog(@"waiting to add another step ...");
-        [NSThread sleepForTimeInterval:20];
+        [NSThread sleepForTimeInterval:12];
         NSLog(@"adding another step ...");
         [experiment001 appendStep:step005];
         [experiment001 dump];
         [self setCurrentSession:_currentSession];
     });
-    
-
     
     
     BASession2 *session001 = [[BASession2 alloc] initWithName:@"Session 001" description:@"Description of Session 001" experiments:[NSMutableArray arrayWithObjects:experiment001, nil]];

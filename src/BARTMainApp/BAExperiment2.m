@@ -9,6 +9,8 @@
 #import "BAExperiment2.h"
 #import "BAStep2.h"
 
+#import "BARTNotifications.h"
+
 #import <objc/runtime.h>
 
 
@@ -139,6 +141,7 @@
 - (void)appendStep:(id)step
 {
     [self insertObject:step inStepsAtIndex:[self countOfSteps]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BARTSessionTreeNodeChangeNotification object:self];
 }
 
 #pragma mark -
