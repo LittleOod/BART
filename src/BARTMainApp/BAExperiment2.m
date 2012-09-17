@@ -140,9 +140,34 @@
 
 - (void)appendStep:(id)step
 {
-    [self insertObject:step inStepsAtIndex:[self countOfSteps]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:BARTSessionTreeNodeChangeNotification object:self];
+    NSUInteger index = [self countOfSteps];
+    [self insertObject:step inStepsAtIndex:index];
+
+    BARTSessionTreeNodeChangeNotificationChangeType changeType = childAdded;
+    NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [NSNumber numberWithUnsignedInteger:changeType], BARTSessionTreeNodeChangeNotificationChangeTypeKey,
+                                          [NSNumber numberWithUnsignedInteger:index], BARTSessionTreeNodeChangeNotificationChildIndexKey,
+                                          nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BARTSessionTreeNodeChangeNotification object:self userInfo:notificationUserInfo];
 }
+
+- (void)removeStepAtIndex:(NSUInteger)index
+{
+    [self removeObjectFromStepsAtIndex:index];
+    BARTSessionTreeNodeChangeNotificationChangeType changeType = childRemoved;
+    NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [NSNumber numberWithUnsignedInteger:changeType], BARTSessionTreeNodeChangeNotificationChangeTypeKey,
+                                          [NSNumber numberWithUnsignedInteger:index], BARTSessionTreeNodeChangeNotificationChildIndexKey,
+                                          nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BARTSessionTreeNodeChangeNotification object:self userInfo:notificationUserInfo];
+}
+
+
+- (void)removeStep:(BASessionTreeNode*)step
+{
+    [self removeStepAtIndex:[_steps indexOfObject:step]];
+}
+
 
 #pragma mark -
 #pragma mark Instance Methods (Global Objects)

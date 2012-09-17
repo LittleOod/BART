@@ -44,7 +44,9 @@
 - (id)initWithEDL:(COSystemConfig*)edl name:(NSString*)name description:(NSString*)description;
 - (id)initWithEDL:(COSystemConfig*)edl name:(NSString*)name description:(NSString*)description steps:(NSArray*)steps;
 
-- (void)appendStep:(id)step;
+- (void)appendStep:(BASessionTreeNode*)step;
+- (void)removeStepAtIndex:(NSUInteger)index;
+- (void)removeStep:(BASessionTreeNode*)step;
 
 - (void)addObjectToGlobalTable:(id)object name:(NSString*)name;
 - (id)objectFromGlobalTable:(NSString*)name;

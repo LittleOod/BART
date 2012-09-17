@@ -13,6 +13,7 @@
 #import "BASessionContext.h"
 #import "BARTNotifications.h"
 
+#import <QuartzCore/QuartzCore.h>
 
 
 #pragma mark -
@@ -41,19 +42,39 @@
 
         [[NSNotificationCenter defaultCenter] addObserverForName:BARTSessionTreeNodeChangeNotification
                                                           object:nil
-                                                           queue:sessionTreeViewQueue
+                                                           queue:[NSOperationQueue mainQueue]
                                                       usingBlock:^(NSNotification *notification) {
-                                                          NSLog(@"[BARTSessionTreeNodeChangeNotification] %@", notification);
-                                                          [_sessionTreeOutlineView beginUpdates];
-                                                          NSIndexSet *insertIndexSet = [NSIndexSet indexSetWithIndex:[[[notification object] children] count] - 1];
-                                                          [_sessionTreeOutlineView reloadData];
-                                                          [_sessionTreeOutlineView insertItemsAtIndexes:insertIndexSet inParent:[notification object] withAnimation:NSTableViewAnimationEffectFade];
-                                                          [_sessionTreeOutlineView endUpdates];
-//                                                          [_sessionTreeOutlineView reloadItem:[notification object] reloadChildren:TRUE];
+                                                          [self handleSessionTreeNodeChangeNotification:notification];
                                                       }];
     }
     
     return self;
+}
+
+
+#pragma mark -
+#pragma mark Observers and Notifications
+
+- (void)handleSessionTreeNodeChangeNotification:(NSNotification*)notification
+{
+    NSLog(@"[BARTSessionTreeNodeChangeNotification] %@", notification);
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+//    [NSAnimationContext setCompletionHandler: ^{
+//        NSLog(@"[NSAnimationContext] Animations Completed.");
+//    }];
+    [_sessionTreeOutlineView beginUpdates];
+    BARTSessionTreeNodeChangeNotificationChangeType changeType = (BARTSessionTreeNodeChangeNotificationChangeType)[[[notification userInfo] objectForKey:BARTSessionTreeNodeChangeNotificationChangeTypeKey] unsignedIntegerValue];
+    if(changeType == childAdded) {
+        NSIndexSet *insertIndexSet = [NSIndexSet indexSetWithIndex:[[[notification userInfo] objectForKey:BARTSessionTreeNodeChangeNotificationChildIndexKey] unsignedIntegerValue]];
+        [_sessionTreeOutlineView insertItemsAtIndexes:insertIndexSet inParent:[notification object] withAnimation:NSTableViewAnimationSlideDown];
+    }
+    if(changeType == childRemoved) {
+        NSIndexSet *removeIndexSet = [NSIndexSet indexSetWithIndex:[[[notification userInfo] objectForKey:BARTSessionTreeNodeChangeNotificationChildIndexKey] unsignedIntegerValue]];
+        [_sessionTreeOutlineView removeItemsAtIndexes:removeIndexSet inParent:[notification object] withAnimation:NSTableViewAnimationSlideUp];
+    }
+    [_sessionTreeOutlineView endUpdates];
+    [NSAnimationContext endGrouping];
 }
 
 

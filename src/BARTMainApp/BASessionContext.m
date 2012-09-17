@@ -152,13 +152,15 @@
                                                                  name:@"Experiment 001"
                                                           description:@"Description of Experiment 001"];
 
-    BAStep2 *step001 = [[BAStep2 alloc] initWithName:@"Step 001" description:@"Description of Step 001"]; 
-    BAStep2 *step002 = [[BAStep2 alloc] initWithName:@"Step 002" description:@"Description of Step 002"]; 
-    BAStep2 *step003 = [[BAStep2 alloc] initWithName:@"Step 003" description:@"Description of Step 003"]; 
-    BAStep2 *step004 = [[BAStep2 alloc] initWithName:@"Step 004" description:@"Description of Step 004"]; 
-    BAStep2 *step005 = [[BAStep2 alloc] initWithName:@"Step 005" description:@"Description of Step 005"]; 
+    BAStep2 *step001  = [[BAStep2 alloc] initWithName:@"Step 001"  description:@"Description of Step 001"];
+    BAStep2 *step001a = [[BAStep2 alloc] initWithName:@"Step 001a" description:@"Description of Step 001a"];
+    BAStep2 *step002  = [[BAStep2 alloc] initWithName:@"Step 002"  description:@"Description of Step 002"];
+    BAStep2 *step003  = [[BAStep2 alloc] initWithName:@"Step 003"  description:@"Description of Step 003"];
+    BAStep2 *step004  = [[BAStep2 alloc] initWithName:@"Step 004"  description:@"Description of Step 004"];
+    BAStep2 *step005  = [[BAStep2 alloc] initWithName:@"Step 005"  description:@"Description of Step 005"]; 
 
     [experiment001 appendStep:step001];
+    [experiment001 appendStep:step001a];
     [experiment001 appendStep:step002];
     [experiment001 appendStep:step003];
     [experiment001 appendStep:step004];
@@ -171,7 +173,15 @@
         NSLog(@"adding another step ...");
         [experiment001 appendStep:step005];
         [experiment001 dump];
-        [self setCurrentSession:_currentSession];
+//        [self setCurrentSession:_currentSession];
+        [NSThread sleepForTimeInterval:3];
+        NSLog(@"removing a step ...");
+        [experiment001 removeStep:step001a];
+        [experiment001 dump];
+        for(int changeIndex = 0; changeIndex < 1000; changeIndex++) {
+            [NSThread sleepForTimeInterval:1];
+            [[[experiment001 steps] objectAtIndex:(random() % [experiment001 childCount])] setState:(random() % 6)];
+        }
     });
     
     

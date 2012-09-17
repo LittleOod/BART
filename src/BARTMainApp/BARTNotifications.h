@@ -20,5 +20,12 @@ extern NSString * const BARTScannerSentTerminusNotification;
 extern NSString * const BARTStopExperimentNotification;
 
 extern NSString * const BARTSessionTreeNodeChangeNotification;
+extern NSString * const BARTSessionTreeNodeChangeNotificationChangeTypeKey;
+extern NSString * const BARTSessionTreeNodeChangeNotificationChildIndexKey;
+
+typedef enum {
+    childAdded   = 0x01,
+    childRemoved = 0x02
+} BARTSessionTreeNodeChangeNotificationChangeType;
 
 #endif // BARTNOTIFICATIONS_H
