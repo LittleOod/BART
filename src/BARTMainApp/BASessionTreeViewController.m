@@ -112,6 +112,10 @@
     }
 }
 
+#pragma mark -
+#pragma mark NSOutlineViewDelegate Methods
+
+
 - (NSView*)outlineView:(NSOutlineView *)outlineView
     viewForTableColumn:(NSTableColumn *)tableColumn
                   item:(id)item
@@ -121,11 +125,17 @@
     return [outlineView makeViewWithIdentifier:[tableColumn identifier] owner:self];
 }
 
+- (NSView*)outlineView:(NSOutlineView *)outlineView
+        rowViewForItem:(id)item {
+    return nil;
+}
+
 
 #pragma mark -
 #pragma mark NSOutlineViewDataSource Methods
 
-- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+- (NSInteger)outlineView:(NSOutlineView *)outlineView
+  numberOfChildrenOfItem:(id)item
 {
     NSUInteger count = 0;
     
@@ -142,7 +152,9 @@
     return count;
 }
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
+- (id)outlineView:(NSOutlineView *)outlineView
+            child:(NSInteger)index
+           ofItem:(id)item
 {
     NSLog(@"[BASessionTreeViewController childOfItem]: %@ | %@ | %lu", outlineView, item, index);
 
@@ -153,9 +165,17 @@
     }
 }
 
-- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
+- (BOOL)outlineView:(NSOutlineView *)outlineView
+   isItemExpandable:(id)item
 {
     return !([item isKindOfClass:[BAStep2 class]]);
+}
+
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView
+        isGroupItem:(id)item
+{
+    return [item isKindOfClass:[BASession2 class]];
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item

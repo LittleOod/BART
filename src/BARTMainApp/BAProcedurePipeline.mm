@@ -251,6 +251,12 @@
 	if (FALSE == isRealTimeTCPInput){
 		resData = [[mAnalyzer anaylzeTheData:mInputData withDesign:[paradigm designElement]  atCurrentTimestep:mCurrentTimestep-1 forContrastVector:contrastVector andWriteResultInto:nil] retain];
         
+        NSString *fname =[NSString stringWithFormat:@"zmapnr_%lu.nii", mCurrentTimestep];
+        NSString* newFileName = [[[COExperimentContext getInstance] systemConfig] getProp:@"$logFolder"];
+        newFileName = [newFileName stringByAppendingPathComponent:fname];
+        
+		//NSString *fname =[NSString stringWithFormat:@"/tmp/test_zmapnr_%lu.nii", [mInputData getImageSize].timesteps];
+		[resData WriteDataElementToFile:newFileName];
 	}
 	else {
 		resData = [[mAnalyzer anaylzeTheData:mInputData withDesign:[paradigm designElement] atCurrentTimestep:[mInputData getImageSize].timesteps forContrastVector:contrastVector andWriteResultInto:nil] retain];

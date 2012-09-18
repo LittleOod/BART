@@ -26,7 +26,7 @@
     if([[[self objectValue] name] isEqualToString:@"ExpName"]) {
 
     } else {
-        [self setBackgroundStyle:NSBackgroundStyleLight];
+
     }
     [super drawRect:dirtyRect];
     // NSLog(@"[BASessionTreeNodeCellView drawRect]: %@", NSStringFromRect(dirtyRect));
