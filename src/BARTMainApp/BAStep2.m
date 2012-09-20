@@ -27,6 +27,10 @@
 #pragma mark -
 #pragma mark Initialization
 
+- (id)init{
+    return [self initWithName:[[self class] typeDisplayName] description:[[self class] typeDescription]];
+}
+
 - (id) initWithName:(NSString*)name description:(NSString*)description;
 {
     if(self = [super initWithType:BA_NODE_TYPE_STEP name:name description:description children:nil]) {

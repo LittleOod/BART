@@ -122,7 +122,11 @@
 {
     NSLog(@"outlineView:%@ viewForTableColumn:%@ item:%@", outlineView, tableColumn, item);
 
-    return [outlineView makeViewWithIdentifier:[tableColumn identifier] owner:self];
+    if([item isKindOfClass:[BASession2 class]]) {
+        return [outlineView makeViewWithIdentifier:[[[outlineView tableColumns] objectAtIndex:0] identifier] owner:self];
+    } else {
+        return [outlineView makeViewWithIdentifier:[tableColumn identifier] owner:self];
+    }
 }
 
 - (NSView*)outlineView:(NSOutlineView *)outlineView
@@ -171,11 +175,17 @@
     return !([item isKindOfClass:[BAStep2 class]]);
 }
 
+- (BOOL)outlineView:(NSOutlineView *)outlineView
+   shouldSelectItem:(id)item
+{
+    return ![item isKindOfClass:[BASession2 class]];
+}
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView
         isGroupItem:(id)item
 {
-    return [item isKindOfClass:[BASession2 class]];
+//    return [item isKindOfClass:[BASession2 class]];
+    return NO;
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item

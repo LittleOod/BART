@@ -1,16 +1,17 @@
 //
-//  RTAnalysisExperiment.m
+//  DynamicDesignExperiment.m
 //  BARTApplication
 //
-//  Created by Torsten Schlumm on 8/6/12.
+//  Created by Torsten Schlumm on 9/20/12.
 //  Copyright (c) 2012 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
 //
 
 #pragma mark -
 #pragma mark Local Headers
 
-#import "RTAnalysisExperiment.h"
+#import "DynamicDesignExperiment.h"
 #import "BAStep2.h"
+#import "ProvideWorkingSpaceStep.h"
 
 
 #pragma mark -
@@ -20,7 +21,7 @@
 #pragma mark -
 #pragma mark Implementation
 
-@implementation RTAnalysisExperiment {
+@implementation DynamicDesignExperiment {
     
 }
 
@@ -33,9 +34,9 @@
     self = [super experimentWithEDL:edl name:name description:description];
     
     if(self) {
-        NSLog(@"[RTAnalysisExperiment] initialization started ...");
-        NSLog(@"[RTAnalysisExperiment] EDL: %@", edl);
-        NSLog(@"[RTAnalysisExperiment] EDL node count: %lu", [[(BAExperiment2*)self edl] countNodes:@"*/*/*"]);
+        NSLog(@"[DynamicDesignExperiment] initialization started ...");
+        NSLog(@"[DynamicDesignExperiment] EDL: %@", edl);
+        NSLog(@"[DynamicDesignExperiment] EDL node count: %lu", [[(BAExperiment2*)self edl] countNodes:@"*/*/*"]);
     }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -51,16 +52,12 @@
 
 - (void)createSteps
 {
-    NSLog(@"[RTAnalysisExperiment createSteps] called");
-
+    NSLog(@"[DynamicDesignExperiment createSteps] called");
+    
     [NSThread sleepForTimeInterval:5];
 
-    for(unsigned long stepIndex = 0; stepIndex < 12; stepIndex++) {
-        BAStep2 *step = [[BAStep2 alloc] initWithName:[NSString stringWithFormat:@"RTAnalysis Step %03lu", stepIndex] description:[NSString stringWithFormat:@"Description of RTAnalysis Step %03lu", stepIndex]];
-        [self appendStep:step];
-        [NSThread sleepForTimeInterval:0.2];
-    }
-    
+    BAStep2 *provideWorkingSpaceStep = [[ProvideWorkingSpaceStep alloc] init];
+    [self appendStep:provideWorkingSpaceStep];
     
 }
 
@@ -71,12 +68,12 @@
 
 + (NSString*)typeDisplayName
 {
-    return @"RT Analysis";
+    return @"Dynamic Design";
 }
 
 + (NSString*)typeDescription
 {
-    return @"RT Analysis Experiment Description";
+    return @"Dynamic Design Experiment Description";
 }
 
 

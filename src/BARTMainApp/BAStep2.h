@@ -17,7 +17,8 @@
 
 @property (readwrite,assign) BAExperiment2 *experiment;
 
-- (id) initWithName:(NSString*)name description:(NSString*)description;
+- (id)init;
+- (id)initWithName:(NSString*)name description:(NSString*)description;
 
 + (NSString*)typeDisplayName;
 + (NSString*)typeDescription;
