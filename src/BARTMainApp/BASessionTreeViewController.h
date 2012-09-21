@@ -20,6 +20,9 @@
 @property (readonly) NSArray *sessions;
 
 
+- (IBAction)handleSessionTreeNodeDescriptionClick:(id)sender;
+
+
 - (void)handleSessionTreeNodeChangeNotification:(NSNotification*)notification;
 
 @end

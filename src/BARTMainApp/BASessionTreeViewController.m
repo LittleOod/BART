@@ -87,6 +87,14 @@
 }
 
 
+#pragma mark -
+#pragma mark Actions & Mouse Events
+
+- (IBAction)handleSessionTreeNodeDescriptionClick:(id)sender
+{
+    NSLog(@"[BARTSessionTreeNodeChangeNotification handleSessionTreeNodeDescriptionClick] called: %@", sender);
+}
+
 
 #pragma mark -
 #pragma mark Local Properties
@@ -120,7 +128,7 @@
     viewForTableColumn:(NSTableColumn *)tableColumn
                   item:(id)item
 {
-    NSLog(@"outlineView:%@ viewForTableColumn:%@ item:%@", outlineView, tableColumn, item);
+    NSLog(@"[BASessionTreeViewController outlineView: viewForTableColumn: item:] %@ | %@ | %@", outlineView, tableColumn, item);
 
     if([item isKindOfClass:[BASession2 class]]) {
         return [outlineView makeViewWithIdentifier:[[[outlineView tableColumns] objectAtIndex:0] identifier] owner:self];
@@ -129,9 +137,21 @@
     }
 }
 
-- (NSView*)outlineView:(NSOutlineView *)outlineView
-        rowViewForItem:(id)item {
-    return nil;
+- (NSTableRowView*)outlineView:(NSOutlineView *)outlineView
+                rowViewForItem:(id)item {
+
+    NSLog(@"[BASessionTreeViewController outlineView: rowViewForItem:] %@ | %@", outlineView, item);
+
+    NSTableRowView *returnView = [_sessionTreeOutlineView rowViewAtRow:[_sessionTreeOutlineView rowForItem:item] makeIfNecessary:YES];
+    NSLog(@"[BASessionTreeViewController] OutlineView returned view: %@", returnView);
+    
+    if([item isKindOfClass:[BAExperiment2 class]]) {
+        [returnView setEmphasized:TRUE];
+    } else {
+        [returnView setEmphasized:FALSE];
+    }
+    
+    return returnView;
 }
 
 
@@ -187,6 +207,7 @@
 //    return [item isKindOfClass:[BASession2 class]];
     return NO;
 }
+
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {

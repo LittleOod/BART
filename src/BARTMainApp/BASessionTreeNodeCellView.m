@@ -18,6 +18,8 @@
 @synthesize nodeDescriptionTextField;
 @synthesize nodeStateImageView;
 
+
+
 #pragma mark -
 #pragma mark Drawing
 
