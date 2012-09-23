@@ -3,7 +3,7 @@
 //  BARTApplication
 //
 //  Created by Lydia Hellrung on 6/24/10.
-//  Copyright 2010 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
+//  Copyright 2010 MPI Human Cognitive and Brain Sciences Leipzig. All rights reserved.
 //
 
 #import "isis_test.h"

@@ -3,7 +3,7 @@
 //  BARTApplication
 //
 //  Created by Lydia Hellrung on 11/6/09.
-//  Copyright 2009 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
+//  Copyright 2009 MPI Human Cognitive and Brain Sciences Leipzig. All rights reserved.
 //
 
 #ifndef NEDESIGNELEMENT_H

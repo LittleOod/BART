@@ -3,7 +3,7 @@
 //  BARTApplication
 //
 //  Created by Torsten Schlumm on 3/22/11.
-//  Copyright 2011 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
+//  Copyright 2011 MPI Human Cognitive and Brain Sciences Leipzig. All rights reserved.
 //
 
 

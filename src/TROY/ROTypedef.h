@@ -3,7 +3,7 @@
 //  BARTApplication
 //
 //  Created by Oliver Zscheyge on 2/3/12.
-//  Copyright (c) 2012 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
+//  Copyright (c) 2012 MPI Human Cognitive and Brain Sciences Leipzig. All rights reserved.
 //
 
 #ifndef BARTApplication_ROTypedef_h

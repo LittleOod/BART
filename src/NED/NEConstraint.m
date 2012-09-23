@@ -3,7 +3,7 @@
 //  BARTApplication
 //
 //  Created by Lydia Hellrung on 2/28/12.
-//  Copyright (c) 2012 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
+//  Copyright (c) 2012 MPI Human Cognitive and Brain Sciences Leipzig. All rights reserved.
 //
 
 #import "NEConstraint.h"

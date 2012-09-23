@@ -3,7 +3,7 @@
 //  BARTApplication
 //
 //  Created by Lydia Hellrung on 8/7/11.
-//  Copyright 2011 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
+//  Copyright 2011 MPI Human Cognitive and Brain Sciences Leipzig. All rights reserved.
 //
 
 /* The class to hold the information about influences from external devices to the stimulus events in the Presentation 

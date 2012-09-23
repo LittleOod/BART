@@ -3,7 +3,7 @@
 //  BARTApplication
 //
 //  Created by Lydia Hellrung on 3/30/11.
-//  Copyright 2011 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
+//  Copyright 2011 MPI Human Cognitive and Brain Sciences Leipzig. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>

@@ -3,7 +3,7 @@
 //  BARTApplication
 //
 //  Created by Lydia Hellrung on 8/7/11.
-//  Copyright 2011 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
+//  Copyright 2011 MPI Human Cognitive and Brain Sciences Leipzig. All rights reserved.
 //
 
 // This class holds all the information about an experiment - the static configuration stuff as well as runtime information about currently loaded plugins and stuff like that.

@@ -3,7 +3,7 @@
 // 
 //
 //  Created by Karsten Molka on 4/20/10.
-//  Copyright 2010 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
+//  Copyright 2010 MPI Human Cognitive and Brain Sciences Leipzig. All rights reserved.
 //
 
 #ifndef SERIALPORT_H

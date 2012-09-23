@@ -3,7 +3,7 @@
 //  SerialPortSample
 //
 //  Created by Lydia Hellrung on 11/12/10.
-//  Copyright 2010 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
+//  Copyright 2010 MPI Human Cognitive and Brain Sciences Leipzig. All rights reserved.
 //
 
 #ifndef BARTSERIALIOPROTOCOL_H

@@ -202,11 +202,10 @@
 					"\"$(SRCROOT)/../../../../runtime/BART_workspace/Build/Products/Debug\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = BARTSerialIOPluginEyeTrac_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				LIBRARY_SEARCH_PATHS = "";
@@ -229,10 +228,9 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../runtime/BART_workspace/Build/Products/Debug\"",
 				);
-				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BARTSerialIOPluginEyeTrac_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				LIBRARY_SEARCH_PATHS = "";
@@ -260,6 +258,7 @@
 				HEADER_SEARCH_PATHS = (
 					$HOME/Library/Frameworks/BARTSerialIOFramework,
 					/usr/local,
+					$PROJECT_DIR/..,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
@@ -271,7 +270,7 @@
 					BARTSerialIOFramework,
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 				SHARED_PRECOMPS_DIR = "";
 			};
 			name = Debug;
@@ -289,6 +288,7 @@
 				HEADER_SEARCH_PATHS = (
 					$HOME/Library/Frameworks/BARTSerialIOFramework,
 					/usr/local,
+					$PROJECT_DIR/..,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
@@ -300,7 +300,7 @@
 					BARTSerialIOFramework,
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 			};
 			name = Release;
 		};
