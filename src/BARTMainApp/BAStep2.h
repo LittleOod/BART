@@ -20,6 +20,8 @@
 - (id)init;
 - (id)initWithName:(NSString*)name description:(NSString*)description;
 
+// step implementations will have to overwrite this method to do
+// their specific configuration
 - (void)configure:(BOOL)discardCurrentConfig;
 
 + (NSString*)typeDisplayName;
