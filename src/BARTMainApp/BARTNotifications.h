@@ -19,13 +19,29 @@ extern NSString * const BARTTestBackroundNotification;
 extern NSString * const BARTScannerSentTerminusNotification;
 extern NSString * const BARTStopExperimentNotification;
 
+
+// Session Tree Changes
 extern NSString * const BARTSessionTreeNodeChangeNotification;
+// Notification Info Dictionary Keys
 extern NSString * const BARTSessionTreeNodeChangeNotificationChangeTypeKey;
 extern NSString * const BARTSessionTreeNodeChangeNotificationChildIndexKey;
-
+// Change Types
 typedef enum {
     childAdded   = 0x01,
     childRemoved = 0x02
 } BARTSessionTreeNodeChangeNotificationChangeType;
+
+
+// Step Configuration
+extern NSString * const BARTStepConfigurationNotification;
+// Notification Info Dictionary Keys
+extern NSString * const BARTStepConfigurationNotificationEventTypeKey;
+// Event Types
+typedef enum {
+    configurationStarted  = 0x01,
+    configurationFinished = 0x02
+} BARTStepConfigurationNotificationEventType;
+
+
 
 #endif // BARTNOTIFICATIONS_H

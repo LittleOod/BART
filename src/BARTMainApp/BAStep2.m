@@ -7,10 +7,20 @@
 //
 
 #import "BAStep2.h"
+#import "BARTNotifications.h"
+
+
+@interface BAStep2()
+
+- (void)doConfiguration:(BOOL)discardCurrentConfig;
+
+@end
+
 
 
 @implementation BAStep2 {
     NSArray *emptyChildArray;
+    
 }
 
 #pragma mark -
@@ -22,6 +32,23 @@
 
 @synthesize experiment = _experiment;
 
+- (BAExperiment2*)experiment
+{
+    return _experiment;
+}
+
+- (void)setExperiment:(BAExperiment2*)experiment
+{
+    if(_experiment) {
+        [_experiment autorelease];
+    }
+    [self willChangeValueForKey:@"experiment"];
+    _experiment = [experiment retain];
+    [self didChangeValueForKey:@"experiment"];
+    
+    // trigger configuration
+    [self doConfiguration:TRUE];
+}
 
 
 #pragma mark -
@@ -41,6 +68,40 @@
     
     return self;
 }
+
+
+#pragma mark -
+#pragma mark Configuration
+
+- (void)configure:(BOOL)discardCurrentConfig
+{
+    // empty
+}
+
+- (void)doConfiguration:(BOOL)discardCurrentConfig
+{
+    BARTStepConfigurationNotificationEventType eventType;
+    NSDictionary *notificationUserInfo;
+    
+    // configuration starts
+    eventType = configurationStarted;
+    notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [NSNumber numberWithUnsignedInteger:eventType], BARTStepConfigurationNotificationEventTypeKey,
+                            nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BARTStepConfigurationNotification object:self userInfo:notificationUserInfo];
+
+    // call custom step configuration
+    [self configure:discardCurrentConfig];
+    
+    // configuration is finished
+    eventType = configurationFinished;
+    notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [NSNumber numberWithUnsignedInteger:eventType], BARTStepConfigurationNotificationEventTypeKey,
+                            nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BARTStepConfigurationNotification object:self userInfo:notificationUserInfo];
+    
+}
+
 
 - (NSArray*)children
 {

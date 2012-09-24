@@ -20,6 +20,8 @@
 - (id)init;
 - (id)initWithName:(NSString*)name description:(NSString*)description;
 
+- (void)configure:(BOOL)discardCurrentConfig;
+
 + (NSString*)typeDisplayName;
 + (NSString*)typeDescription;
 

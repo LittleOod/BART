@@ -18,3 +18,6 @@ NSString * const BARTStopExperimentNotification = @"BARTStopExperimentNotificati
 NSString * const BARTSessionTreeNodeChangeNotification = @"BARTSessionTreeNodeChangeNotification";
 NSString * const BARTSessionTreeNodeChangeNotificationChangeTypeKey = @"BARTSessionTreeNodeChangeNotificationChangeTypeKey";
 NSString * const BARTSessionTreeNodeChangeNotificationChildIndexKey = @"BARTSessionTreeNodeChangeNotificationChildIndexKey";
+
+NSString * const BARTStepConfigurationNotification = @"BARTStepConfigurationNotification";
+NSString * const BARTStepConfigurationNotificationEventTypeKey = @"BARTStepConfigurationNotificationEventTypeKey";

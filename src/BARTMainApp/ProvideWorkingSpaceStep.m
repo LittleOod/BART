@@ -24,6 +24,14 @@
     
 }
 
+#pragma mark -
+#pragma mark Configuration
+
+- (void)configure:(BOOL)discardCurrentConfig
+{
+    NSLog(@"[ProvideWorkingSpaceStep configure:%@] called.", (discardCurrentConfig ? @"TRUE" : @"FALSE"));
+}
+
 
 #pragma mark -
 #pragma mark Class Methods
