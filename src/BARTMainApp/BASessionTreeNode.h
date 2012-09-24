@@ -27,10 +27,12 @@
 
 - (id)initWithType:(uint)type name:(NSString*)name description:(NSString*)description children:(NSArray*)children;
 
+- (void)addObjectToGlobalTable:(id)object name:(NSString*)name;
+- (id)objectFromGlobalTable:(NSString*)name;
 
--(BOOL)isRoot;
--(NSUInteger)childCount;
+- (BOOL)isRoot;
+- (NSUInteger)childCount;
 
--(void)dump;
+- (void)dump;
 
 @end

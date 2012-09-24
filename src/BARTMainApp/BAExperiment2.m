@@ -19,7 +19,6 @@
     
     NSMutableArray *_steps;
     
-    NSDictionary *globalObjectTable;
 }
 
 #pragma mark -
@@ -63,16 +62,7 @@
         _steps = [[NSMutableArray arrayWithArray:steps] retain];
     }
     
-    // init global object table
-    globalObjectTable = [[NSDictionary alloc] initWithObjectsAndKeys:nil];
-    
     return self;
-}
-
-- (void)dealloc
-{
-    [globalObjectTable release];
-    [super dealloc];
 }
 
 
@@ -174,20 +164,6 @@
 - (void)removeStep:(BASessionTreeNode*)step
 {
     [self removeStepAtIndex:[_steps indexOfObject:step]];
-}
-
-
-#pragma mark -
-#pragma mark Instance Methods (Global Objects)
-
-- (void)addObjectToGlobalTable:(id)object name:(NSString*)name
-{
-    [globalObjectTable setValue:object forKey:name];
-}
-
-- (id)objectFromGlobalTable:(NSString*)name
-{
-    return [globalObjectTable objectForKey:name];
 }
 
 

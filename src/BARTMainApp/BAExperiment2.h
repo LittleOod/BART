@@ -49,8 +49,6 @@
 - (void)removeStepAtIndex:(NSUInteger)index;
 - (void)removeStep:(BASessionTreeNode*)step;
 
-- (void)addObjectToGlobalTable:(id)object name:(NSString*)name;
-- (id)objectFromGlobalTable:(NSString*)name;
 
 
 

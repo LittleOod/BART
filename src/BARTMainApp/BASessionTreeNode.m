@@ -13,7 +13,11 @@
 #import "BAStep2.h"
 
 
-@implementation BASessionTreeNode
+@implementation BASessionTreeNode {
+    
+    NSDictionary *globalObjectTable;
+
+}
 
 
 @synthesize object      = _object;
@@ -26,6 +30,9 @@
 @synthesize typeIcon  = _typeIcon;
 @synthesize stateIcon = _stateIcon;
 
+
+#pragma mark -
+#pragma mark Property Related Methods
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString *)key
 {
@@ -76,6 +83,9 @@
 }
 
 
+#pragma mark -
+#pragma mark Initialization/Deallocation
+
 - (id)initWithType:(uint)type name:(NSString*)name description:(NSString*)description children:(NSArray*)children
 {
     if(self = [super init]) {
@@ -88,13 +98,16 @@
         _name        = [name copy];
         _description = [description copy];
         _state       = BA_NODE_STATE_UNKNOWN;
+
+        // init global object table
+        globalObjectTable = [[NSDictionary alloc] initWithObjectsAndKeys:nil];
+
         NSLog(@"Created BASessionTreeNode:");
         NSLog(@"           type: %lu", _type);
         NSLog(@"           name: %@",  _name);
         NSLog(@"    description: %@",  _description);
         NSLog(@"          state: %@",  _state);
         NSLog(@"       children: %@",  _children);
-        
     }
     
     return self;
@@ -104,8 +117,27 @@
 - (void)dealloc
 {
 //    [_object removeObserver:self forKeyPath:@"state"];
+    [globalObjectTable release];
     [super dealloc];
 }
+
+
+#pragma mark -
+#pragma mark Instance Methods (Global Objects)
+
+- (void)addObjectToGlobalTable:(id)object name:(NSString*)name
+{
+    [globalObjectTable setValue:object forKey:name];
+}
+
+- (id)objectFromGlobalTable:(NSString*)name
+{
+    return [globalObjectTable objectForKey:name];
+}
+
+
+#pragma mark -
+#pragma mark Instance Methods (Structure)
 
 -(BOOL)isRoot
 {
@@ -153,12 +185,17 @@
 //    }
 //}
 
+#pragma mark -
+#pragma mark NSObject methods
 
 - (id)copyWithZone:(NSZone *)zone
 {
     return self;
 }
 
+
+#pragma mark -
+#pragma mark Debugging
 
 - (void)dump
 {
