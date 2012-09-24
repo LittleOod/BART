@@ -32,6 +32,8 @@
     NSLog(@"[ProvideWorkingSpaceStep configure:%@] called.", (discardCurrentConfig ? @"TRUE" : @"FALSE"));
 
     [NSThread sleepForTimeInterval:20];
+
+    [self setState:BA_NODE_STATE_READY];
     
     NSLog(@"[ProvideWorkingSpaceStep configure:%@] finished.", (discardCurrentConfig ? @"TRUE" : @"FALSE"));
 }
