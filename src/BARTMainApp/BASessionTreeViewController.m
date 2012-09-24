@@ -90,10 +90,10 @@
 
     BARTStepConfigurationNotificationEventType eventType = (BARTStepConfigurationNotificationEventType)[[[notification userInfo] objectForKey:BARTStepConfigurationNotificationEventTypeKey] unsignedIntegerValue];
     if(eventType == configurationStarted) {
-        [[[_sessionTreeOutlineView viewAtColumn:0 row:[_sessionTreeOutlineView rowForItem:[notification object]] makeIfNecessary:TRUE] nodeProgressIndicator] startAnimation:self];
+        [[_sessionTreeOutlineView viewAtColumn:0 row:[_sessionTreeOutlineView rowForItem:[notification object]] makeIfNecessary:TRUE] startProgressIndicator];
     }
     if(eventType == configurationFinished) {
-        [[[_sessionTreeOutlineView viewAtColumn:0 row:[_sessionTreeOutlineView rowForItem:[notification object]] makeIfNecessary:TRUE] nodeProgressIndicator] stopAnimation:self];
+        [[_sessionTreeOutlineView viewAtColumn:0 row:[_sessionTreeOutlineView rowForItem:[notification object]] makeIfNecessary:TRUE] stopProgressIndicator];
     }
 }
 

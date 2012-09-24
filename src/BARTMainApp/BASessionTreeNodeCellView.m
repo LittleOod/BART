@@ -18,7 +18,12 @@
 @end
 
 
-@implementation BASessionTreeNodeCellView
+@implementation BASessionTreeNodeCellView {
+    
+}
+
+static CGFloat disabledAlphaValue = 0.3;
+static CGFloat  enabledAlphaValue = 1.0;
 
 #pragma mark -
 #pragma mark Local Properties
@@ -69,26 +74,22 @@
 
 - (void)disableSubViews
 {
-    if([self wantsLayer] == FALSE) {
-        [self setWantsLayer:TRUE];
-    }
-    [[self animator] setAlpha:0.1];
-//    [[self textField] setAlphaValue:0.5];
-//    [[self imageView] setAlphaValue:0.5];
-//    [nodeStateImageView setAlphaValue:0.5];
-//    [nodeDescriptionTextField setAlphaValue:0.5];
+    [NSAnimationContext beginGrouping];
+    [[self textField] setAlphaValue:disabledAlphaValue];
+    [[self imageView] setAlphaValue:disabledAlphaValue];
+    [nodeStateImageView setAlphaValue:disabledAlphaValue];
+    [nodeDescriptionTextField setAlphaValue:disabledAlphaValue];
+    [NSAnimationContext endGrouping];
 }
 
 - (void)enableSubViews
 {
-    if([self wantsLayer] == FALSE) {
-        [self setWantsLayer:TRUE];
-    }
-    [[self animator] setAlpha:1.0];
-//    [[self textField] setAlphaValue:1.0];
-//    [[self imageView] setAlphaValue:1.0];
-//    [nodeStateImageView setAlphaValue:1.0];
-//    [nodeDescriptionTextField setAlphaValue:1.0];
+    [NSAnimationContext beginGrouping];
+    [[self textField] setAlphaValue:enabledAlphaValue];
+    [[self imageView] setAlphaValue:enabledAlphaValue];
+    [nodeStateImageView setAlphaValue:enabledAlphaValue];
+    [nodeDescriptionTextField setAlphaValue:enabledAlphaValue];
+    [NSAnimationContext endGrouping];
 }
 
 
