@@ -12,7 +12,6 @@
 
 @interface BAStep2()
 
-- (void)doConfiguration:(BOOL)discardCurrentConfig;
 
 @end
 

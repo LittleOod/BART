@@ -20,9 +20,17 @@
 - (id)init;
 - (id)initWithName:(NSString*)name description:(NSString*)description;
 
+
 // step implementations will have to overwrite this method to do
 // their specific configuration
 - (void)configure:(BOOL)discardCurrentConfig;
+
+// this is just a wrapper method to handle notifications for
+// the views etc. and finally call the above 'configure' method
+// of the actual implementation
+// step implementations shouldn't touch this method unless you
+// really know what you're doing
+- (void)doConfiguration:(BOOL)discardCurrentConfig;
 
 + (NSString*)typeDisplayName;
 + (NSString*)typeDescription;
