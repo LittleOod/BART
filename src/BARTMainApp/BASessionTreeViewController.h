@@ -24,5 +24,6 @@
 
 
 - (void)handleSessionTreeNodeChangeNotification:(NSNotification*)notification;
+- (void)handleStepConfigurationNotification:(NSNotification*)notification;
 
 @end

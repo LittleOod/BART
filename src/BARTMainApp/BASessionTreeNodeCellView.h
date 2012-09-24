@@ -14,14 +14,20 @@
 
 
 @private
-    IBOutlet NSTextField *nodeDescriptionTextField;
-    IBOutlet NSImageView *nodeStateImageView;
+    IBOutlet NSTextField         *nodeDescriptionTextField;
+    IBOutlet NSImageView         *nodeStateImageView;
+    IBOutlet NSProgressIndicator *nodeProgressIndicator;
 
 }
 
+@property (assign) NSTextField         *nodeDescriptionTextField;
+@property (assign) NSImageView         *nodeStateImageView;
+@property (assign) NSProgressIndicator *nodeProgressIndicator;
 
-@property (assign) NSTextField *nodeDescriptionTextField;
-@property (assign) NSImageView *nodeStateImageView;
+
+- (void)startProgressIndicator;
+- (void)stopProgressIndicator;
+
 
 
 @end

@@ -10,6 +10,7 @@
 #pragma mark Headers
 
 #import "BASessionTreeViewController.h"
+#import "BASessionTreeNodeCellView.h"
 #import "BASessionContext.h"
 #import "BARTNotifications.h"
 
@@ -46,6 +47,12 @@
                                                       usingBlock:^(NSNotification *notification) {
                                                           [self handleSessionTreeNodeChangeNotification:notification];
                                                       }];
+        [[NSNotificationCenter defaultCenter] addObserverForName:BARTStepConfigurationNotification
+                                                          object:nil
+                                                           queue:[NSOperationQueue mainQueue]
+                                                      usingBlock:^(NSNotification *notification) {
+                                                          [self handleStepConfigurationNotification:notification];
+                                                      }];
     }
     
     return self;
@@ -76,6 +83,21 @@
     [_sessionTreeOutlineView endUpdates];
     [NSAnimationContext endGrouping];
 }
+
+- (void)handleStepConfigurationNotification:(NSNotification*)notification
+{
+    NSLog(@"[BARTStepConfigurationNotification] %@", notification);
+
+    BARTStepConfigurationNotificationEventType eventType = (BARTStepConfigurationNotificationEventType)[[[notification userInfo] objectForKey:BARTStepConfigurationNotificationEventTypeKey] unsignedIntegerValue];
+    if(eventType == configurationStarted) {
+        [[[_sessionTreeOutlineView viewAtColumn:0 row:[_sessionTreeOutlineView rowForItem:[notification object]] makeIfNecessary:TRUE] nodeProgressIndicator] startAnimation:self];
+    }
+    if(eventType == configurationFinished) {
+        [[[_sessionTreeOutlineView viewAtColumn:0 row:[_sessionTreeOutlineView rowForItem:[notification object]] makeIfNecessary:TRUE] nodeProgressIndicator] stopAnimation:self];
+    }
+}
+
+
 
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

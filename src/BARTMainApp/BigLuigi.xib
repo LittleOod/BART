@@ -18,6 +18,7 @@
 			<string>NSImageCell</string>
 			<string>NSImageView</string>
 			<string>NSOutlineView</string>
+			<string>NSProgressIndicator</string>
 			<string>NSScrollView</string>
 			<string>NSScroller</string>
 			<string>NSSplitView</string>
@@ -439,7 +440,7 @@
 																	<bytes key="NSWhite">MC41AA</bytes>
 																</object>
 															</object>
-															<double key="NSRowHeight">96</double>
+															<double key="NSRowHeight">42</double>
 															<int key="NSTvFlags">1379926016</int>
 															<reference key="NSDelegate"/>
 															<reference key="NSDataSource"/>
@@ -507,7 +508,7 @@
 											<reference key="NSVScroller" ref="894050838"/>
 											<reference key="NSHScroller" ref="955747729"/>
 											<reference key="NSContentView" ref="438258138"/>
-											<bytes key="NSScrollAmts">QSAAAEEgAABCwAAAQsAAAA</bytes>
+											<bytes key="NSScrollAmts">QSAAAEEgAABCKAAAQigAAA</bytes>
 										</object>
 									</array>
 									<string key="NSFrameSize">{310, 545}</string>
@@ -614,7 +615,8 @@
 							<int key="NSvFlags">298</int>
 							<string key="NSFrame">{{45, 2}, {215, 17}}</string>
 							<reference key="NSSuperview" ref="728289905"/>
-							<reference key="NSNextKeyView" ref="518823873"/>
+							<reference key="NSNextKeyView" ref="594545416"/>
+							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:20</string>
 							<string key="NSAntiCompressionPriority">{250, 750}</string>
 							<bool key="NSEnabled">YES</bool>
@@ -690,6 +692,7 @@
 									<string key="NSFrame">{{4, 6}, {32, 32}}</string>
 									<reference key="NSSuperview" ref="728289905"/>
 									<reference key="NSNextKeyView" ref="388196814"/>
+									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<string key="NSReuseIdentifierKey">_NS:11</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSImageCell" key="NSCell" id="778414994">
@@ -710,6 +713,7 @@
 									<string key="NSFrame">{{45, 22}, {215, 17}}</string>
 									<reference key="NSSuperview" ref="728289905"/>
 									<reference key="NSNextKeyView" ref="358323755"/>
+									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<string key="NSReuseIdentifierKey">_NS:20</string>
 									<string key="NSAntiCompressionPriority">{250, 750}</string>
 									<bool key="NSEnabled">YES</bool>
@@ -744,6 +748,7 @@
 									<string key="NSFrame">{{265, 8}, {24, 24}}</string>
 									<reference key="NSSuperview" ref="728289905"/>
 									<reference key="NSNextKeyView" ref="894050838"/>
+									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<string key="NSReuseIdentifierKey">_NS:11</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSImageCell" key="NSCell" id="1063000161">
@@ -758,9 +763,21 @@
 									</object>
 									<bool key="NSEditable">YES</bool>
 								</object>
+								<object class="NSProgressIndicator" id="594545416">
+									<reference key="NSNextResponder" ref="728289905"/>
+									<int key="NSvFlags">268</int>
+									<string key="NSFrame">{{137, 5}, {32, 32}}</string>
+									<reference key="NSSuperview" ref="728289905"/>
+									<reference key="NSNextKeyView" ref="518823873"/>
+									<int key="NSViewLayerContentsRedrawPolicy">2</int>
+									<string key="NSReuseIdentifierKey">_NS:945</string>
+									<int key="NSpiFlags">28682</int>
+									<double key="NSMaxValue">100</double>
+								</object>
 							</array>
 							<string key="NSFrame">{{1, 0}, {307, 42}}</string>
 							<reference key="NSNextKeyView" ref="729049528"/>
+							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 						</object>
 						<reference key="destination" ref="729049528"/>
@@ -790,6 +807,14 @@
 						<reference key="destination" ref="358323755"/>
 					</object>
 					<int key="connectionID">592</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">nodeProgressIndicator</string>
+						<reference key="source" ref="728289905"/>
+						<reference key="destination" ref="594545416"/>
+					</object>
+					<int key="connectionID">611</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1124,6 +1149,7 @@
 							<reference ref="518823873"/>
 							<reference ref="388196814"/>
 							<reference ref="358323755"/>
+							<reference ref="594545416"/>
 						</array>
 						<reference key="parent" ref="897814095"/>
 					</object>
@@ -1184,6 +1210,11 @@
 						<reference key="object" ref="374994153"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">BAMainSplitViewDelegate</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">610</int>
+						<reference key="object" ref="594545416"/>
+						<reference key="parent" ref="728289905"/>
 					</object>
 				</array>
 			</object>
@@ -1256,6 +1287,7 @@
 				<string key="589.userInterfaceItemIdentifier">SessionTreeNodeStateImageView</string>
 				<string key="590.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="605.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="610.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="76.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="77.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="78.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1264,7 +1296,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">609</int>
+			<int key="maxID">613</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1319,12 +1351,17 @@
 					<string key="superclassName">NSTableCellView</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="nodeDescriptionTextField">NSTextField</string>
+						<string key="nodeProgressIndicator">NSProgressIndicator</string>
 						<string key="nodeStateImageView">NSImageView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="nodeDescriptionTextField">
 							<string key="name">nodeDescriptionTextField</string>
 							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="nodeProgressIndicator">
+							<string key="name">nodeProgressIndicator</string>
+							<string key="candidateClassName">NSProgressIndicator</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="nodeStateImageView">
 							<string key="name">nodeStateImageView</string>

@@ -30,6 +30,10 @@
 - (void)configure:(BOOL)discardCurrentConfig
 {
     NSLog(@"[ProvideWorkingSpaceStep configure:%@] called.", (discardCurrentConfig ? @"TRUE" : @"FALSE"));
+
+    [NSThread sleepForTimeInterval:20];
+    
+    NSLog(@"[ProvideWorkingSpaceStep configure:%@] finished.", (discardCurrentConfig ? @"TRUE" : @"FALSE"));
 }
 
 
