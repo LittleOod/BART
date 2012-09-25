@@ -58,14 +58,21 @@
 
     // this way of creating a step needs the 'step-header' to be included
     BAStep2 *provideWorkingSpaceStep = [[ProvideWorkingSpaceStep alloc] init];
+    [provideWorkingSpaceStep setState:BA_NODE_STATE_NEEDS_CONFIGURATION];
     [self appendStep:provideWorkingSpaceStep];
 
     // no need to include the 'step-header' for this way of creating the step
     BAStep2 *provideAnatomyStep = [[NSClassFromString(@"ProvideAnatomyStep") alloc] init];
+    [provideAnatomyStep setState:BA_NODE_STATE_NEEDS_CONFIGURATION];
     [self appendStep:provideAnatomyStep];
 
     BAStep2 *registrationStep = [[NSClassFromString(@"RegistrationStep") alloc] init];
+    [registrationStep setState:BA_NODE_STATE_NEEDS_CONFIGURATION];
     [self appendStep:registrationStep];
+    
+    BAStep2 *roiSelectionStep = [[NSClassFromString(@"ROISelectionStep") alloc] init];
+    [roiSelectionStep setState:BA_NODE_STATE_NEEDS_CONFIGURATION];
+    [self appendStep:roiSelectionStep];
     
 }
 
