@@ -310,6 +310,8 @@
 		E54810A7160B3CC1000551FA /* DynamicDesignExperiment.m in Sources */ = {isa = PBXBuildFile; fileRef = E54810A6160B3CC1000551FA /* DynamicDesignExperiment.m */; };
 		E54810AF160B4C78000551FA /* ProvideWorkingSpaceStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E54810AE160B4C78000551FA /* ProvideWorkingSpaceStep.m */; };
 		E54810B2160B5E58000551FA /* BASessionTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E54810B1160B5E58000551FA /* BASessionTreeView.m */; };
+		E54810C51611B32F000551FA /* ProvideAnatomyStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E54810C41611B32F000551FA /* ProvideAnatomyStep.m */; };
+		E54810CA1611D0D2000551FA /* RegistrationStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E54810C91611D0D2000551FA /* RegistrationStep.m */; };
 		E54B814C157E3F580029ECC4 /* BAHierarchyElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54B814B157E3F580029ECC4 /* BAHierarchyElementViewController.m */; };
 		E54B8151157E40030029ECC4 /* BAExampleStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E54B8150157E40030029ECC4 /* BAExampleStep.m */; };
 		E54B8156157E40600029ECC4 /* BAExampleStepConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54B8154157E40600029ECC4 /* BAExampleStepConfigViewController.m */; };
@@ -1013,6 +1015,10 @@
 		E54810AE160B4C78000551FA /* ProvideWorkingSpaceStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvideWorkingSpaceStep.m; sourceTree = "<group>"; };
 		E54810B0160B5E58000551FA /* BASessionTreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASessionTreeView.h; sourceTree = "<group>"; };
 		E54810B1160B5E58000551FA /* BASessionTreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASessionTreeView.m; sourceTree = "<group>"; };
+		E54810C31611B32F000551FA /* ProvideAnatomyStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvideAnatomyStep.h; sourceTree = "<group>"; };
+		E54810C41611B32F000551FA /* ProvideAnatomyStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvideAnatomyStep.m; sourceTree = "<group>"; };
+		E54810C81611D0D2000551FA /* RegistrationStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationStep.h; sourceTree = "<group>"; };
+		E54810C91611D0D2000551FA /* RegistrationStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationStep.m; sourceTree = "<group>"; };
 		E54934E21339151E003264FE /* EDDataElementRealTimeLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EDDataElementRealTimeLoader.mm; sourceTree = "<group>"; };
 		E54B814A157E3F580029ECC4 /* BAHierarchyElementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHierarchyElementViewController.h; sourceTree = "<group>"; };
 		E54B814B157E3F580029ECC4 /* BAHierarchyElementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHierarchyElementViewController.m; sourceTree = "<group>"; };
@@ -1401,6 +1407,7 @@
 				00AE3E0A1337980200F2D01D /* Model */,
 				00AE3E09133797FA00F2D01D /* Controller */,
 				E5799B1215CFFBCB009C0F31 /* Experiment Implementations */,
+				E54810C71611C170000551FA /* Experiment Views */,
 				E59804FC16077D1B003D966B /* Step Implementations */,
 				E54B814E157E3FB50029ECC4 /* Element Implementations */,
 				0040B8631141483B00A57967 /* CIKernels */,
@@ -2025,6 +2032,13 @@
 			name = "Simulation Data Provider";
 			sourceTree = "<group>";
 		};
+		E54810C71611C170000551FA /* Experiment Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Experiment Views";
+			sourceTree = "<group>";
+		};
 		E54B814E157E3FB50029ECC4 /* Element Implementations */ = {
 			isa = PBXGroup;
 			children = (
@@ -2065,6 +2079,10 @@
 			children = (
 				E54810AD160B4C78000551FA /* ProvideWorkingSpaceStep.h */,
 				E54810AE160B4C78000551FA /* ProvideWorkingSpaceStep.m */,
+				E54810C31611B32F000551FA /* ProvideAnatomyStep.h */,
+				E54810C41611B32F000551FA /* ProvideAnatomyStep.m */,
+				E54810C81611D0D2000551FA /* RegistrationStep.h */,
+				E54810C91611D0D2000551FA /* RegistrationStep.m */,
 			);
 			name = "Step Implementations";
 			sourceTree = "<group>";
@@ -3084,6 +3102,8 @@
 				E54810A7160B3CC1000551FA /* DynamicDesignExperiment.m in Sources */,
 				E54810AF160B4C78000551FA /* ProvideWorkingSpaceStep.m in Sources */,
 				E54810B2160B5E58000551FA /* BASessionTreeView.m in Sources */,
+				E54810C51611B32F000551FA /* ProvideAnatomyStep.m in Sources */,
+				E54810CA1611D0D2000551FA /* RegistrationStep.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

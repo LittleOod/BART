@@ -1,15 +1,15 @@
 //
-//  ProvideWorkingSpaceStep.m
+//  RegistrationStep.m
 //  BARTApplication
 //
-//  Created by Torsten Schlumm on 9/20/12.
+//  Created by Torsten Schlumm on 9/25/12.
 //  Copyright (c) 2012 MPI Cognitive and Human Brain Sciences Leipzig. All rights reserved.
 //
 
 #pragma mark -
 #pragma mark Local Headers
 
-#import "ProvideWorkingSpaceStep.h"
+#import "RegistrationStep.h"
 
 
 #pragma mark -
@@ -20,7 +20,7 @@
 #pragma mark -
 #pragma mark Implementation
 
-@implementation ProvideWorkingSpaceStep {
+@implementation RegistrationStep {
     
 }
 
@@ -29,13 +29,13 @@
 
 - (void)configure:(BOOL)discardCurrentConfig
 {
-    NSLog(@"[ProvideWorkingSpaceStep configure:%@] called.", (discardCurrentConfig ? @"TRUE" : @"FALSE"));
-
+    NSLog(@"[RegistrationStep configure:%@] called.", (discardCurrentConfig ? @"TRUE" : @"FALSE"));
+    
     [NSThread sleepForTimeInterval:(5 + (random() % 11))];
-
+    
     [self setState:BA_NODE_STATE_READY];
     
-    NSLog(@"[ProvideWorkingSpaceStep configure:%@] finished.", (discardCurrentConfig ? @"TRUE" : @"FALSE"));
+    NSLog(@"[RegistrationStep configure:%@] finished.", (discardCurrentConfig ? @"TRUE" : @"FALSE"));
 }
 
 
@@ -44,14 +44,12 @@
 
 + (NSString*)typeDisplayName
 {
-    return @"Provide Working Space";
+    return @"Registration";
 }
 
 + (NSString*)typeDescription
 {
-    return @"Step to provide the working space for the current experiment either from a previous experiment or through the aquisition of a 'localizer'.";
+    return @"Coregistration of Functional Data to Anatomical Data and optionally into MNI-Space.";
 }
-
-
 
 @end

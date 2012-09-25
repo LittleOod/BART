@@ -56,8 +56,16 @@
     
     [NSThread sleepForTimeInterval:5];
 
+    // this way of creating a step needs the 'step-header' to be included
     BAStep2 *provideWorkingSpaceStep = [[ProvideWorkingSpaceStep alloc] init];
     [self appendStep:provideWorkingSpaceStep];
+
+    // no need to include the 'step-header' for this way of creating the step
+    BAStep2 *provideAnatomyStep = [[NSClassFromString(@"ProvideAnatomyStep") alloc] init];
+    [self appendStep:provideAnatomyStep];
+
+    BAStep2 *registrationStep = [[NSClassFromString(@"RegistrationStep") alloc] init];
+    [self appendStep:registrationStep];
     
 }
 
