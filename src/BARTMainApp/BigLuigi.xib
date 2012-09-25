@@ -615,7 +615,7 @@
 							<int key="NSvFlags">298</int>
 							<string key="NSFrame">{{45, 2}, {215, 17}}</string>
 							<reference key="NSSuperview" ref="728289905"/>
-							<reference key="NSNextKeyView" ref="594545416"/>
+							<reference key="NSNextKeyView" ref="549997184"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:20</string>
 							<string key="NSAntiCompressionPriority">{250, 750}</string>
@@ -763,7 +763,7 @@
 									</object>
 									<bool key="NSEditable">YES</bool>
 								</object>
-								<object class="NSProgressIndicator" id="594545416">
+								<object class="NSProgressIndicator" id="549997184">
 									<reference key="NSNextResponder" ref="728289905"/>
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{137, 5}, {32, 32}}</string>
@@ -812,7 +812,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">nodeProgressIndicator</string>
 						<reference key="source" ref="728289905"/>
-						<reference key="destination" ref="594545416"/>
+						<reference key="destination" ref="549997184"/>
 					</object>
 					<int key="connectionID">611</int>
 				</object>
@@ -863,6 +863,22 @@
 						</object>
 					</object>
 					<int key="connectionID">600</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">toolTip: objectValue.description</string>
+						<reference key="source" ref="358323755"/>
+						<reference key="destination" ref="728289905"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="358323755"/>
+							<reference key="NSDestination" ref="728289905"/>
+							<string key="NSLabel">toolTip: objectValue.description</string>
+							<string key="NSBinding">toolTip</string>
+							<string key="NSKeyPath">objectValue.description</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">616</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1149,7 +1165,7 @@
 							<reference ref="518823873"/>
 							<reference ref="388196814"/>
 							<reference ref="358323755"/>
-							<reference ref="594545416"/>
+							<reference ref="549997184"/>
 						</array>
 						<reference key="parent" ref="897814095"/>
 					</object>
@@ -1213,7 +1229,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">610</int>
-						<reference key="object" ref="594545416"/>
+						<reference key="object" ref="549997184"/>
 						<reference key="parent" ref="728289905"/>
 					</object>
 				</array>
@@ -1296,7 +1312,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">613</int>
+			<int key="maxID">616</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
