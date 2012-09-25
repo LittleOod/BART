@@ -21,6 +21,9 @@
 @property (readonly,retain)  NSArray        *steps;
 @property (readwrite,assign) BASession2     *session;
 
+@property (retain)           NSSet          *rtLoop;
+
+
 // this is the method to overwrite in the specific experiment implementation to
 // kick-off all the necessary creation/configuration etc. of steps and other stuff
 // But remember: always call super ;-)
@@ -48,8 +51,6 @@
 - (void)appendStep:(BASessionTreeNode*)step;
 - (void)removeStepAtIndex:(NSUInteger)index;
 - (void)removeStep:(BASessionTreeNode*)step;
-
-
 
 
 + (NSString*)typeDisplayName;

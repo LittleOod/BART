@@ -8,7 +8,6 @@
 
 #import "BAExperiment2.h"
 #import "BAStep2.h"
-
 #import "BARTNotifications.h"
 
 #import <objc/runtime.h>
@@ -18,6 +17,7 @@
 @implementation BAExperiment2 {
     
     NSMutableArray *_steps;
+    NSMutableSet   *_rtLoop;
     
 }
 
@@ -31,6 +31,8 @@
 
 @synthesize steps   = _steps;
 @synthesize session = _session;
+@synthesize rtLoop  = _rtLoop;
+
 
 #pragma mark -
 #pragma mark Initialization and Destruction
@@ -125,6 +127,62 @@
     [self didChangeValueForKey:@"steps"];
 }
 
+
+#pragma mark -
+#pragma mark Property Methods 'rtLoop'
+
+- (NSSet*)rtLoop
+{
+    return [NSSet setWithSet:_rtLoop];
+}
+
+- (void)setRtLoop:(NSSet *)rtLoop
+{
+    [_rtLoop setSet:rtLoop];
+}
+
+- (NSUInteger)countOfRtLoop
+{
+    return [_rtLoop count];
+}
+
+- (BAStep2*)memberOfRtLoop:(BAStep2*)step
+{
+    return [_rtLoop member:step];
+}
+
+- (NSEnumerator*)enumeratorOfRtLoop
+{
+    return [_rtLoop objectEnumerator];
+}
+
+- (NSMutableSet*)mutableRtLoop
+{
+    return [self mutableSetValueForKey:@"rtLoop"];
+}
+
+- (void)addRtLoopObject:(BAStep2*)step
+{
+    [_rtLoop addObject:step];
+}
+
+- (void)addRtLoop:(NSSet*)steps
+{
+    [_rtLoop unionSet:steps];
+}
+
+- (void)removeRtLoopObject:(BAStep2*)step
+{
+    [_rtLoop removeObject:step];
+}
+
+- (void)removeRtLoop:(NSSet*)steps
+{
+    [_rtLoop minusSet:steps];
+}
+
+
+
 #pragma mark -
 #pragma mark Instance Methods (Structure)
 
@@ -165,6 +223,10 @@
 {
     [self removeStepAtIndex:[_steps indexOfObject:step]];
 }
+
+
+#pragma mark -
+#pragma mark Notification / Observer Methods
 
 
 #pragma mark -
