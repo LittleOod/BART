@@ -188,16 +188,18 @@
 
 - (void)addStep:(id)step atIndex:(NSUInteger)index
 {
-
     
-    [self insertObject:step inStepsAtIndex:MIN(index, [self countOfSteps])];
-    
-    BARTSessionTreeNodeChangeNotificationChangeType changeType = childAdded;
-    NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          [NSNumber numberWithUnsignedInteger:changeType], BARTSessionTreeNodeChangeNotificationChangeTypeKey,
-                                          [NSNumber numberWithUnsignedInteger:index], BARTSessionTreeNodeChangeNotificationChildIndexKey,
-                                          nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:BARTSessionTreeNodeChangeNotification object:self userInfo:notificationUserInfo];
+    if([_steps indexOfObject:step] == NSNotFound) {
+        [self insertObject:step inStepsAtIndex:MIN(index, [self countOfSteps])];
+        [step addObserver:self forKeyPath:@"state" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:nil];
+        NSLog(@"[BAExperiment2 addStep: atIndex:] Observer added.");
+        BARTSessionTreeNodeChangeNotificationChangeType changeType = childAdded;
+        NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                              [NSNumber numberWithUnsignedInteger:changeType], BARTSessionTreeNodeChangeNotificationChangeTypeKey,
+                                              [NSNumber numberWithUnsignedInteger:index], BARTSessionTreeNodeChangeNotificationChildIndexKey,
+                                              nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:BARTSessionTreeNodeChangeNotification object:self userInfo:notificationUserInfo];
+    }
 }
 
 - (void)appendStep:(id)step
@@ -209,6 +211,7 @@
 
 - (void)removeStepAtIndex:(NSUInteger)index
 {
+    [[_steps objectAtIndex:index] removeObserver:self];
     [self removeObjectFromStepsAtIndex:index];
     BARTSessionTreeNodeChangeNotificationChangeType changeType = childRemoved;
     NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -221,12 +224,30 @@
 
 - (void)removeStep:(BASessionTreeNode*)step
 {
-    [self removeStepAtIndex:[_steps indexOfObject:step]];
+    if([_steps indexOfObject:step] != NSNotFound) {
+        [self removeStepAtIndex:[_steps indexOfObject:step]];
+    }
 }
 
 
 #pragma mark -
 #pragma mark Notification / Observer Methods
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if([object isKindOfClass:[BAStep2 class]] &&
+       [_steps indexOfObject:object] != NSNotFound &&
+       [keyPath isEqualToString:@"state"]) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self updateState];
+        });
+    }
+}
+
+- (void)updateState
+{
+    
+}
 
 
 #pragma mark -
