@@ -30,6 +30,8 @@
 @synthesize typeIcon  = _typeIcon;
 @synthesize stateIcon = _stateIcon;
 
+@synthesize configurationRunning = _configurationRunning;
+
 
 #pragma mark -
 #pragma mark Property Related Methods
@@ -98,16 +100,19 @@
         _name        = [name copy];
         _description = [description copy];
         _state       = BA_NODE_STATE_UNKNOWN;
+        
+        _configurationRunning = FALSE;
 
         // init global object table
         globalObjectTable = [[NSDictionary alloc] initWithObjectsAndKeys:nil];
 
         NSLog(@"Created BASessionTreeNode:");
-        NSLog(@"           type: %lu", _type);
-        NSLog(@"           name: %@",  _name);
-        NSLog(@"    description: %@",  _description);
-        NSLog(@"          state: %@",  _state);
-        NSLog(@"       children: %@",  _children);
+        NSLog(@"           type: %lu",  _type);
+        NSLog(@"           name: %@",   _name);
+        NSLog(@"    description: %@",   _description);
+        NSLog(@"          state: %lu",  _state);
+        NSLog(@"   conf running: %hhu", _configurationRunning);
+        NSLog(@"       children: %@",   _children);
     }
     
     return self;
@@ -200,11 +205,12 @@
 - (void)dump
 {
     NSLog(@"BASessionTreeNode Dump:");
-    NSLog(@"           type: %lu", [self type]);
-    NSLog(@"           name: %@",  [self name]);
-    NSLog(@"    description: %@",  [self description]);
-    NSLog(@"          state: %@",  [self state]);
-    NSLog(@"       children: %@",  [self children]);
+    NSLog(@"           type: %u",   [self type]);
+    NSLog(@"           name: %@",   [self name]);
+    NSLog(@"    description: %@",   [self description]);
+    NSLog(@"          state: %lu",  [self state]);
+    NSLog(@"   conf running: %hhu", [self configurationRunning]);
+    NSLog(@"       children: %@",   [self children]);
 }
 
 @end

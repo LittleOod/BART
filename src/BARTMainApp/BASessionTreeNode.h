@@ -24,6 +24,8 @@
 @property (readonly)  NSImage               *stateIcon;
 @property (readonly)  NSArray               *children;
 
+@property (readwrite) BOOL                   configurationRunning;
+
 
 - (id)initWithType:(uint)type name:(NSString*)name description:(NSString*)description children:(NSArray*)children;
 

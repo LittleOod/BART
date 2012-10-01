@@ -89,11 +89,20 @@
     NSLog(@"[BARTStepConfigurationNotification] %@", notification);
 
     BARTStepConfigurationNotificationEventType eventType = (BARTStepConfigurationNotificationEventType)[[[notification userInfo] objectForKey:BARTStepConfigurationNotificationEventTypeKey] unsignedIntegerValue];
+    NSInteger _row = [_sessionTreeOutlineView rowForItem:[notification object]];
+    NSLog(@"[BARTStepConfigurationNotification] affected row = %li", _row);
+    if(_row < 0) {
+        return;
+    }
     if(eventType == configurationStarted) {
-        [[_sessionTreeOutlineView viewAtColumn:0 row:[_sessionTreeOutlineView rowForItem:[notification object]] makeIfNecessary:TRUE] startProgressIndicator];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [[_sessionTreeOutlineView viewAtColumn:0 row:_row makeIfNecessary:TRUE] startProgressIndicator];
+        });
     }
     if(eventType == configurationFinished) {
-        [[_sessionTreeOutlineView viewAtColumn:0 row:[_sessionTreeOutlineView rowForItem:[notification object]] makeIfNecessary:TRUE] stopProgressIndicator];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [[_sessionTreeOutlineView viewAtColumn:0 row:_row makeIfNecessary:TRUE] stopProgressIndicator];
+        });
     }
 }
 

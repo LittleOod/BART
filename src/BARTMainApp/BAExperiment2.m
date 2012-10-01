@@ -211,7 +211,7 @@
 
 - (void)removeStepAtIndex:(NSUInteger)index
 {
-    [[_steps objectAtIndex:index] removeObserver:self];
+    [[_steps objectAtIndex:index] removeObserver:self forKeyPath:@"state"];
     [self removeObjectFromStepsAtIndex:index];
     BARTSessionTreeNodeChangeNotificationChangeType changeType = childRemoved;
     NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:

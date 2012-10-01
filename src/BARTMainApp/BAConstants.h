@@ -20,8 +20,8 @@ typedef NSUInteger BASessionTreeNodeType;
 
 
 enum {
-    BA_NODE_STATE_UNKNOWN             = 0x0,
-    BA_NODE_STATE_ERROR               = 0x1,
+    BA_NODE_STATE_UNKNOWN             = 0x1,
+    BA_NODE_STATE_ERROR               = 0x0,
     BA_NODE_STATE_NEEDS_CONFIGURATION = 0x2,
     BA_NODE_STATE_READY               = 0x3,
     BA_NODE_STATE_RUNNING             = 0x4,

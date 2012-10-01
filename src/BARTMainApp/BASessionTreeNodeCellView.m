@@ -22,8 +22,9 @@
     
 }
 
-static CGFloat disabledAlphaValue = 0.3;
-static CGFloat  enabledAlphaValue = 1.0;
+static CGFloat  enabledAlphaValue = 0.3;
+static CGFloat disabledAlphaValue = 1.0;
+
 
 #pragma mark -
 #pragma mark Local Properties
@@ -74,22 +75,22 @@ static CGFloat  enabledAlphaValue = 1.0;
 
 - (void)disableSubViews
 {
-    [NSAnimationContext beginGrouping];
-    [[self textField] setAlphaValue:disabledAlphaValue];
-    [[self imageView] setAlphaValue:disabledAlphaValue];
-    [nodeStateImageView setAlphaValue:disabledAlphaValue];
-    [nodeDescriptionTextField setAlphaValue:disabledAlphaValue];
-    [NSAnimationContext endGrouping];
+//    [NSAnimationContext beginGrouping];
+//    [[self textField] setAlphaValue:disabledAlphaValue];
+//    [[self imageView] setAlphaValue:disabledAlphaValue];
+//    [nodeStateImageView setAlphaValue:disabledAlphaValue];
+//    [nodeDescriptionTextField setAlphaValue:disabledAlphaValue];
+//    [NSAnimationContext endGrouping];
 }
 
 - (void)enableSubViews
 {
-    [NSAnimationContext beginGrouping];
-    [[self textField] setAlphaValue:enabledAlphaValue];
-    [[self imageView] setAlphaValue:enabledAlphaValue];
-    [nodeStateImageView setAlphaValue:enabledAlphaValue];
-    [nodeDescriptionTextField setAlphaValue:enabledAlphaValue];
-    [NSAnimationContext endGrouping];
+//    [NSAnimationContext beginGrouping];
+//    [[self textField] setAlphaValue:enabledAlphaValue];
+//    [[self imageView] setAlphaValue:enabledAlphaValue];
+//    [nodeStateImageView setAlphaValue:enabledAlphaValue];
+//    [nodeDescriptionTextField setAlphaValue:enabledAlphaValue];
+//    [NSAnimationContext endGrouping];
 }
 
 
@@ -109,3 +110,4 @@ static CGFloat  enabledAlphaValue = 1.0;
 
 
 @end
+

@@ -44,7 +44,6 @@
     [self willChangeValueForKey:@"experiment"];
     _experiment = [experiment retain];
     [self didChangeValueForKey:@"experiment"];
-    
     // trigger configuration
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self doConfiguration:TRUE];
@@ -81,26 +80,27 @@
 
 - (void)doConfiguration:(BOOL)discardCurrentConfig
 {
-    BARTStepConfigurationNotificationEventType eventType;
-    NSDictionary *notificationUserInfo;
+//    BARTStepConfigurationNotificationEventType eventType;
+//    NSDictionary *notificationUserInfo;
     
     // configuration starts
-    eventType = configurationStarted;
-    notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                            [NSNumber numberWithUnsignedInteger:eventType], BARTStepConfigurationNotificationEventTypeKey,
-                            nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:BARTStepConfigurationNotification object:self userInfo:notificationUserInfo];
-
+//    eventType = configurationStarted;
+//    notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+//                            [NSNumber numberWithUnsignedInteger:eventType], BARTStepConfigurationNotificationEventTypeKey,
+//                            nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:BARTStepConfigurationNotification object:self userInfo:notificationUserInfo];
+    [self setConfigurationRunning:TRUE];
+    
     // call custom step configuration
     [self configure:discardCurrentConfig];
     
     // configuration is finished
-    eventType = configurationFinished;
-    notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                            [NSNumber numberWithUnsignedInteger:eventType], BARTStepConfigurationNotificationEventTypeKey,
-                            nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:BARTStepConfigurationNotification object:self userInfo:notificationUserInfo];
-    
+//    eventType = configurationFinished;
+//    notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+//                            [NSNumber numberWithUnsignedInteger:eventType], BARTStepConfigurationNotificationEventTypeKey,
+//                            nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:BARTStepConfigurationNotification object:self userInfo:notificationUserInfo];
+    [self setConfigurationRunning:FALSE];
 }
 
 
