@@ -11,6 +11,7 @@
 
 #import "DynamicDesignExperiment.h"
 #import "BAStep2.h"
+#import "BASessionContext.h"
 #import "ProvideWorkingSpaceStep.h"
 
 
@@ -43,6 +44,13 @@
         [self createSteps];
     });
     
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [NSThread sleepForTimeInterval:15];
+        NSLog(@"setting active experiment: %@", self);
+        [[BASessionContext sharedBASessionContext] setActiveExperiment:(BAExperiment2*)self];
+    });
+    
+
     return self;
 }
 

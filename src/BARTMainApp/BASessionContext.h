@@ -25,6 +25,8 @@
 @property (readonly)         NSArray           *sessionArray;
 @property (readonly)         NSArray           *registeredExperimentTypes;
 
+@property (readwrite,retain) BAExperiment2     *activeExperiment;
+
 
 + (BASessionContext*)sharedBASessionContext;
 

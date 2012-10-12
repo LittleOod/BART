@@ -31,6 +31,8 @@
 
 @synthesize currentSession = _currentSession;
 @synthesize sessionArray;
+@synthesize activeExperiment = _activeExperiment;
+
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString *)key
 {
@@ -70,6 +72,10 @@
 //    }
 }
 
+
+#pragma mark -
+#pragma mark Property Methods 'sessionArray'
+
 - (NSArray*)sessionArray
 {
     if(_currentSession == nil) {
@@ -80,10 +86,43 @@
 }
 
 
-
 #pragma mark -
-#pragma mark Property Methods 'currentSession'
+#pragma mark Property Methods 'activeExperiment'
 
+-(BAExperiment2*)activeExperiment
+{
+    return _activeExperiment;
+}
+
+- (void)setActiveExperiment:(BAExperiment2*)newActiveExperiment
+{
+    __block BOOL _isInSession = FALSE;
+    
+    [[self sessionArray] enumerateObjectsUsingBlock:^(id session, NSUInteger sessionIndex, BOOL *stop){
+
+        [[(BASession2*)session experiments] enumerateObjectsUsingBlock:^(id experiment, NSUInteger experimentIndex, BOOL *stop) {
+            _isInSession |= (experiment == newActiveExperiment);
+            *stop = _isInSession;
+        }];
+    
+        *stop = _isInSession;
+    }];
+
+    if(_isInSession) {
+        [self willChangeValueForKey:@"activeExperiment"];
+        
+        [newActiveExperiment retain];
+        if(_activeExperiment != nil) {
+            [_activeExperiment release];
+        }
+        _activeExperiment = newActiveExperiment;
+        NSLog(@"[BASessionContext setActiveExperiment] activeExperiment changed to: %@", _activeExperiment);
+        
+        [self didChangeValueForKey:@"activeExperiment"];
+    } else {
+        NSLog(@"[BASessionContext setActiveExperiment] Supposed new active experiment is not a member of any session: %@", newActiveExperiment);
+    }
+}
 
 
 #pragma mark -
@@ -207,7 +246,6 @@
             [[[experiment001 steps] objectAtIndex:(random() % [experiment001 childCount])] setState:(random() % 6)];
         }
     });
-    
     
 }
 

@@ -2040,9 +2040,17 @@
 			name = "Simulation Data Provider";
 			sourceTree = "<group>";
 		};
+		E51C1F471628398200B8A89C /* Dynamic Design Experiment View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Dynamic Design Experiment View";
+			sourceTree = "<group>";
+		};
 		E54810C71611C170000551FA /* Experiment Views */ = {
 			isa = PBXGroup;
 			children = (
+				E51C1F471628398200B8A89C /* Dynamic Design Experiment View */,
 			);
 			name = "Experiment Views";
 			sourceTree = "<group>";
